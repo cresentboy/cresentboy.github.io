@@ -7,4 +7,6 @@
 > 笔记主要涵盖：Java，JVM、JUC、Spring，SpringCloud，计算机网络，操作系统，数据结构，大数据 等
 >
 > 本仓库有来源自己总结、网上收集、视频笔记。
->
+
+- [本项目搭建过程]（doc/HowToBuildThisProject.md）
+
