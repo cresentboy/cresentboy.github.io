@@ -8,5 +8,4 @@
 >
 > 本仓库有来源自己总结、网上收集、视频笔记。
 
-- [本项目搭建过程]（doc/HowToBuildThisProject.md）
-
+- [本项目搭建流程](doc/HowToBuildThisProject.md)
