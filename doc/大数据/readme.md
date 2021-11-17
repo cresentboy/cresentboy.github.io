@@ -1,4 +1,4 @@
-存放关于大数据的学习笔记
+存放大数据相关的学习笔记
 
 - [Azkaban](doc/大数据/azkaban/azkaban.md)
 
