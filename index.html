@@ -13,6 +13,19 @@
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
     />
+    <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css" />
+    <script data-src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script data-src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+    <script>
+      const gitalk = new Gitalk({
+        clientID: 'e9be84f84618070a96e5',
+        clientSecret: '7384a9fd5f6567eed17c8abe952c12b45cc04a8d',
+        repo: 'https://github.com/cresentboy/cresentboy.github.io', // 存放评论的仓库
+        owner: 'cresentboy', // 仓库的创建者
+        admin: ['cresentboy'], // 如果仓库有多个人可以操作，那么在这里以数组形式写出
+        id: location.pathname, // 用于标记评论是哪个页面的
+      })
+    </script>
   </head>
   <body>
     <div id="app">正在加载，请稍等...</div>
