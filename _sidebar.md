@@ -2,9 +2,9 @@
 
 - **文档**
 
-  - [Java](doc/java/README.md)
+  - [Java](doc/java/readme.md)
     - [设计模式](doc/java/design-patterns/README.md)
-  - [大数据学习笔记](doc/大数据/README.md)
+  - [大数据学习笔记](doc/大数据/readme.md)
     - [Spark](doc/大数据/spark/spark.md)
       - [SparkCore](doc/大数据/spark/spark-core.md)
       - [SparkSql](doc/大数据/spark/SparkSql.md)
