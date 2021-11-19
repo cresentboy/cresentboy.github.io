@@ -1,15 +1,18 @@
 - [**刚刚好的学习笔记**](README.md)
 
-- **文档**
+- [文档](doc/READEM.md)
 
-  - [Java](doc/java/readme.md)
-    - [设计模式](doc/java/design-patterns/README.md)
-  - [大数据学习笔记](doc/大数据/readme.md)
-    - [Spark](doc/大数据/spark/spark.md)
-      - [SparkCore](doc/大数据/spark/spark-core.md)
-      - [SparkSql](doc/大数据/spark/SparkSql.md)
-      - [SparkStreaming](doc/大数据/spark/SparkStreaming.md)
-    - [Flink](doc/大数据/flink/flink.md)
+  - [一、Java](doc/java/README.md)
+    - [1.设计模式](doc/java/design-patterns/README.md)
+  - [二、大数据](doc/大数据/README.md)
+    - [1.Spark](doc/大数据/spark/spark.md)
+      - [①.SparkCore](doc/大数据/spark/spark-core.md)
+      - [②.SparkSql](doc/大数据/spark/SparkSql.md)
+      - [③.SparkStreaming](doc/大数据/spark/SparkStreaming.md)
+    - [2.Flink](doc/大数据/flink/flink.md)
+  - [三、操作系统](doc/OperatingSystem/README.md)
+    - [Linux 基础](doc/OperatingSystem/Linux/Linux.md)
+    - [Linux 网络基础](doc/OperatingSystem/Linux/Linux%20网络基础篇.md)
 
 <!-- - **其他**
 
