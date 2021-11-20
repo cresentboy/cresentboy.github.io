@@ -1,6 +1,6 @@
 - [**刚刚好的学习笔记**](README.md)
 
-- [文档](doc/READEM.md)
+- [笔记文档](doc/READEM.md)
 
   - [一、Java](doc/java/README.md)
     - [1.设计模式](doc/java/design-patterns/README.md)
