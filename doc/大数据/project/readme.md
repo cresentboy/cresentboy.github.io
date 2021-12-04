@@ -1,8 +1,8 @@
-第1章 数仓分层
+#
+
+# 第 1 章 数仓分层
 
 ## 1.1 为什么要分层
-
-​                               
 
 ![image-20211122152748463](离线数仓.assets/image-20211122152748463.png)
 
@@ -10,41 +10,39 @@
 
 ### 1.2.1 表命名
 
-Ø ODS层命名为ods_表名
+Ø ODS 层命名为 ods\_表名
 
-Ø DIM层命名为dim_表名
+Ø DIM 层命名为 dim\_表名
 
-Ø DWD层命名为dwd_表名
+Ø DWD 层命名为 dwd\_表名
 
-Ø DWS层命名为dws_表名  
+Ø DWS 层命名为 dws\_表名
 
-Ø DWT层命名为dwt_表名
+Ø DWT 层命名为 dwt\_表名
 
-Ø ADS层命名为ads_表名
+Ø ADS 层命名为 ads\_表名
 
-Ø 临时表命名为tmp_表名
+Ø 临时表命名为 tmp\_表名
 
 ### 1.2.2 脚本命名
 
-Ø 数据源_to_目标_db/log.sh
+Ø 数据源*to*目标\_db/log.sh
 
-Ø 用户行为脚本以log为后缀；业务数据脚本以db为后缀。
-
-
+Ø 用户行为脚本以 log 为后缀；业务数据脚本以 db 为后缀。
 
 ### 1.2.3 表字段类型
 
-Ø 数量类型为bigint
+Ø 数量类型为 bigint
 
-Ø 金额类型为decimal(16, 2)，表示：16位有效数字，其中小数部分2位
+Ø 金额类型为 decimal(16, 2)，表示：16 位有效数字，其中小数部分 2 位
 
-Ø 字符串(名字，描述信息等)类型为string
+Ø 字符串(名字，描述信息等)类型为 string
 
-Ø 主键外键类型为string
+Ø 主键外键类型为 string
 
-Ø 时间戳类型为bigint
+Ø 时间戳类型为 bigint
 
-# 第2章 数仓理论
+# 第 2 章 数仓理论
 
 ## 2.1 范式理论
 
@@ -68,11 +66,11 @@
 
 3）缺点
 
-范式的缺点是获取数据时，需要通过Join拼接出最后的数据。
+范式的缺点是获取数据时，需要通过 Join 拼接出最后的数据。
 
 4）分类
 
-目前业界范式有：第一范式(1NF)、第二范式(2NF)、第三范式(3NF)、巴斯-科德范式(BCNF)、第四范式(4NF)、第五范式(5NF)。 
+目前业界范式有：第一范式(1NF)、第二范式(2NF)、第三范式(3NF)、巴斯-科德范式(BCNF)、第四范式(4NF)、第五范式(5NF)。
 
 ### 2.1.2 三范式区分
 
@@ -84,7 +82,7 @@
 
 ## 2.2 关系建模与维度建模
 
-关系建模和维度建模是两种数据仓库的建模技术。关系建模由Bill Inmon所倡导，维度建模由Ralph Kimball所倡导。
+关系建模和维度建模是两种数据仓库的建模技术。关系建模由 Bill Inmon 所倡导，维度建模由 Ralph Kimball 所倡导。
 
 ### 2.2.1 关系建模
 
@@ -96,7 +94,7 @@
 
 ### 2.2.2 维度建模
 
-维度模型如图所示，从图中可以看出，模型相对清晰、简洁。 
+维度模型如图所示，从图中可以看出，模型相对清晰、简洁。
 
 ![image-20211122153410302](离线数仓.assets/image-20211122153410302.png)
 
@@ -106,19 +104,19 @@
 
 ### 2.3.1 维度表
 
-**维度表**：一般是对事实的**描述信息**。每一张维表对应现实世界中的一个对象或者概念。  例如：用户、商品、日期、地区等。
+**维度表**：一般是对事实的**描述信息**。每一张维表对应现实世界中的一个对象或者概念。 例如：用户、商品、日期、地区等。
 
 **维表的特征：**
 
 Ø 维表的范围很宽（具有多个属性、列比较多）
 
-Ø 跟事实表相比，行数相对较小：通常< 10万条
+Ø 跟事实表相比，行数相对较小：通常< 10 万条
 
 Ø 内容相对固定：编码表
 
 时间维度表：
 
-| 日期ID     | day of week | day of year | 季度 | 节假日 |
+| 日期 ID    | day of week | day of year | 季度 | 节假日 |
 | ---------- | ----------- | ----------- | ---- | ------ |
 | 2020-01-01 | 2           | 1           | 1    | 元旦   |
 | 2020-01-02 | 3           | 2           | 1    | 无     |
@@ -128,7 +126,7 @@
 
 ### 2.3.2 事实表
 
-**事实表中的** **每行数据代表一个业务事件（下单、支付、退款、评价等）**。“事实”这个术语表示的是业务事件的**度量值（可统计次数、个数、金额等）**，例如，2020年5月21日，宋宋老师在京东花了250块钱买了一瓶海狗人参丸。维度表：时间、用户、商品、商家。事实表：250块钱、一瓶
+**事实表中的** **每行数据代表一个业务事件（下单、支付、退款、评价等）**。“事实”这个术语表示的是业务事件的**度量值（可统计次数、个数、金额等）**，例如，2020 年 5 月 21 日，宋宋老师在京东花了 250 块钱买了一瓶海狗人参丸。维度表：时间、用户、商品、商家。事实表：250 块钱、一瓶
 
 每一个事实表的行包括：具有可加性的数值型的度量值、与维表相连接的外键，通常具有两个和两个以上的外键。
 
@@ -136,7 +134,7 @@
 
 Ø 非常的大
 
-Ø 内容相对的窄：列数较少（主要是外键id和度量值）
+Ø 内容相对的窄：列数较少（主要是外键 id 和度量值）
 
 Ø 经常发生变化，每天会新增加很多。
 
@@ -154,45 +152,45 @@
 
 **累计快照事实表用于跟踪业务事实的变化。**例如，数据仓库中可能需要累积或者存储订单从下订单开始，到订单商品被打包、运输、和签收的各个业务阶段的时间点数据来跟踪订单声明周期的进展情况。当这个业务过程进行时，事实表的记录也要不断更新。
 
-| **订单id** | **用户id** | **下单时间** | **打包时间** | **发货时间** | **签收时间** | **订单金额** |
-| ---------- | ---------- | ------------ | ------------ | ------------ | ------------ | ------------ |
-|            |            | 3-8          | 3-8          | 3-9          | 3-10         |              |
+| **订单 id** | **用户 id** | **下单时间** | **打包时间** | **发货时间** | **签收时间** | **订单金额** |
+| ----------- | ----------- | ------------ | ------------ | ------------ | ------------ | ------------ |
+|             |             | 3-8          | 3-8          | 3-9          | 3-10         |              |
 
 ## 2.4 维度模型分类
 
 在维度建模的基础上又分为三种模型：星型模型、雪花模型、星座模型。
 
-​              ![image-20211122153545663](离线数仓.assets/image-20211122153545663.png)                 
+​ ![image-20211122153545663](离线数仓.assets/image-20211122153545663.png)
 
- ![image-20211122153618825](离线数仓.assets/image-20211122153618825.png)
+![image-20211122153618825](离线数仓.assets/image-20211122153618825.png)
 
 ## 2.5 数据仓库建模（绝对重点）
 
-### 2.5.1 ODS层
+### 2.5.1 ODS 层
 
-1）HDFS用户行为数据
+1）HDFS 用户行为数据
 
-​                 ![image-20211122153655597](离线数仓.assets/image-20211122153655597.png)                  
+​ ![image-20211122153655597](离线数仓.assets/image-20211122153655597.png)
 
-2）HDFS业务数据
+2）HDFS 业务数据
 
 ![image-20211122153709774](离线数仓.assets/image-20211122153709774.png)
 
-3）针对HDFS上的用户行为数据和业务数据，我们如何规划处理？
+3）针对 HDFS 上的用户行为数据和业务数据，我们如何规划处理？
 
 （1）保持数据原貌不做任何修改，起到备份数据的作用。
 
-（2）数据采用压缩，减少磁盘存储空间（例如：原始数据100G，可以压缩到10G左右）
+（2）数据采用压缩，减少磁盘存储空间（例如：原始数据 100G，可以压缩到 10G 左右）
 
 （3）创建分区表，防止后续的全表扫描
 
-### 2.5.2 DIM层和DWD层
+### 2.5.2 DIM 层和 DWD 层
 
-DIM层DWD层需构建维度模型，一般采用星型模型，呈现的状态一般为星座模型。
+DIM 层 DWD 层需构建维度模型，一般采用星型模型，呈现的状态一般为星座模型。
 
 维度建模一般按照以下四个步骤：
 
-**选择业务过程→声明粒度→确认维度→确认事实**
+**选择业务过程 → 声明粒度 → 确认维度 → 确认事实**
 
 **（1** **）选择业务过程**
 
@@ -220,7 +218,7 @@ DIM层DWD层需构建维度模型，一般采用星型模型，呈现的状态�
 
 此处的“事实”一词，指的是业务中的度量值（次数、个数、件数、金额，可以进行累加），例如订单金额、下单次数等。
 
-在DWD层，以**业务过程**为建模驱动，基于每个具体业务过程的特点，构建**最细粒度**的明细层事实表。事实表可做适当的宽表化处理。
+在 DWD 层，以**业务过程**为建模驱动，基于每个具体业务过程的特点，构建**最细粒度**的明细层事实表。事实表可做适当的宽表化处理。
 
 事实表和维度表的关联比较灵活，但是为了应对更复杂的业务需求，可以将能关联上的表尽量关联上。
 
@@ -236,23 +234,23 @@ DIM层DWD层需构建维度模型，一般采用星型模型，呈现的状态�
 | **退款**       | √        | √        | √        | √        |            |          | 件数/金额                       |
 | **优惠券领用** | √        | √        |          |          | √          |          | 次数                            |
 
-至此，数据仓库的维度建模已经完毕，DWD层是以业务过程为驱动。
+至此，数据仓库的维度建模已经完毕，DWD 层是以业务过程为驱动。
 
-DWS层、DWT层和ADS层都是以需求为驱动，和维度建模已经没有关系了。
+DWS 层、DWT 层和 ADS 层都是以需求为驱动，和维度建模已经没有关系了。
 
-DWS和DWT都是建宽表，按照主题去建表。主题相当于观察问题的角度。对应着维度表。
+DWS 和 DWT 都是建宽表，按照主题去建表。主题相当于观察问题的角度。对应着维度表。
 
-### 2.5.3 DWS层与DWT层
+### 2.5.3 DWS 层与 DWT 层
 
-DWS层和DWT层统称宽表层，这两层的设计思想大致相同，通过以下案例进行阐述。
+DWS 层和 DWT 层统称宽表层，这两层的设计思想大致相同，通过以下案例进行阐述。
 
 1）问题引出：两个需求，统计每个省份订单的个数、统计每个省份订单的总金额
 
-2）处理办法：都是将省份表和订单表进行join，group by省份，然后计算。同样数据被计算了两次，实际上类似的场景还会更多。
+2）处理办法：都是将省份表和订单表进行 join，group by 省份，然后计算。同样数据被计算了两次，实际上类似的场景还会更多。
 
-​    那怎么设计能避免重复计算呢？
+​ 那怎么设计能避免重复计算呢？
 
-针对上述场景，可以设计一张地区宽表，其主键为地区ID，字段包含为：下单次数、下单金额、支付次数、支付金额等。上述所有指标都统一进行计算，并将结果保存在该宽表中，这样就能有效避免数据的重复计算。
+针对上述场景，可以设计一张地区宽表，其主键为地区 ID，字段包含为：下单次数、下单金额、支付次数、支付金额等。上述所有指标都统一进行计算，并将结果保存在该宽表中，这样就能有效避免数据的重复计算。
 
 3）总结：
 
@@ -260,41 +258,41 @@ DWS层和DWT层统称宽表层，这两层的设计思想大致相同，通过�
 
 （２）宽表里面的字段：是站在不同维度的角度去看事实表，重点关注事实表聚合后的度量值。
 
-（３）DWS和DWT层的区别：DWS层存放的所有主题对象当天的汇总行为，例如每个地区当天的下单次数，下单金额等，DWT层存放的是所有主题对象的累积行为，例如每个地区最近７天（１５天、３０天、６０天）的下单次数、下单金额等。
+（３）DWS 和 DWT 层的区别：DWS 层存放的所有主题对象当天的汇总行为，例如每个地区当天的下单次数，下单金额等，DWT 层存放的是所有主题对象的累积行为，例如每个地区最近７天（１５天、３０天、６０天）的下单次数、下单金额等。
 
-### 2.5.4 ADS层
+### 2.5.4 ADS 层
 
-​    对电商系统各大主题指标分别进行分析。
+​ 对电商系统各大主题指标分别进行分析。
 
-# 第3章 数仓环境搭建
+# 第 3 章 数仓环境搭建
 
-## 3.1 Hive环境搭建
+## 3.1 Hive 环境搭建
 
 **3.1.1 Hive** **引擎简介**
 
-​    Hive引擎包括：默认MR、tez、spark
+​ Hive 引擎包括：默认 MR、tez、spark
 
-Hive on Spark：Hive既作为存储元数据又负责SQL的解析优化，**语法是HQL语法**，执行引擎变成了Spark，Spark负责采用RDD执行。
+Hive on Spark：Hive 既作为存储元数据又负责 SQL 的解析优化，**语法是 HQL 语法**，执行引擎变成了 Spark，Spark 负责采用 RDD 执行。
 
-Spark on Hive : Hive只作为存储元数据，Spark负责SQL解析优化，**语法是Spark SQL语法**，Spark负责采用RDD执行。
+Spark on Hive : Hive 只作为存储元数据，Spark 负责 SQL 解析优化，**语法是 Spark SQL 语法**，Spark 负责采用 RDD 执行。
 
 **3.1.2 Hive on Spark** **配置**
 
 **1** **）兼容性说明**
 
-注意：官网下载的Hive3.1.2和Spark3.0.0默认是不兼容的。因为Hive3.1.2支持的Spark版本是2.4.5，所以需要我们**重新编译Hive3.1.2版本**。
+注意：官网下载的 Hive3.1.2 和 Spark3.0.0 默认是不兼容的。因为 Hive3.1.2 支持的 Spark 版本是 2.4.5，所以需要我们**重新编译 Hive3.1.2 版本**。
 
-编译步骤：官网下载Hive3.1.2源码，修改pom文件中引用的Spark版本为3.0.0，如果编译通过，直接打包获取jar包。如果报错，就根据提示，修改相关方法，直到不报错，打包获取jar包。
+编译步骤：官网下载 Hive3.1.2 源码，修改 pom 文件中引用的 Spark 版本为 3.0.0，如果编译通过，直接打包获取 jar 包。如果报错，就根据提示，修改相关方法，直到不报错，打包获取 jar 包。
 
-**2** **）在Hive** **所在节点部署Spark**
+**2** **）在 Hive** **所在节点部署 Spark**
 
-如果之前已经部署了Spark，则该步骤可以跳过，但要检查SPARK_HOME的环境变量配置是否正确。
+如果之前已经部署了 Spark，则该步骤可以跳过，但要检查 SPARK_HOME 的环境变量配置是否正确。
 
-（1）Spark官网下载jar包地址：
+（1）Spark 官网下载 jar 包地址：
 
 http://spark.apache.org/downloads.html
 
-（2）上传并解压解压spark-3.0.0-bin-hadoop3.2.tgz
+（2）上传并解压解压 spark-3.0.0-bin-hadoop3.2.tgz
 
 ```sh
 [atguigu@hadoop102 software]$ tar -zxvf spark-3.0.0-bin-hadoop3.2.tgz -C /opt/module/
@@ -302,7 +300,7 @@ http://spark.apache.org/downloads.html
 [atguigu@hadoop102 software]$ mv /opt/module/spark-3.0.0-bin-hadoop3.2 /opt/module/spark
 ```
 
-（3）配置SPARK_HOME环境变量
+（3）配置 SPARK_HOME 环境变量
 
 ```sh
 [atguigu@hadoop102 software]$ sudo vim /etc/profile.d/my_env.sh
@@ -326,7 +324,7 @@ source 使其生效
 [atguigu@hadoop102 software]$ source /etc/profile.d/my_env.sh
 ```
 
-**３）在hive** **中创建spark** **配置文件**
+**３）在 hive** **中创建 spark** **配置文件**
 
 ```sh
 [atguigu@hadoop102 software]$ vim /opt/module/hive/conf/spark-defaults.conf
@@ -342,25 +340,25 @@ spark.executor.memory          1g
 spark.driver.memory          1g
 ```
 
-在HDFS创建如下路径，用于存储历史日志
+在 HDFS 创建如下路径，用于存储历史日志
 
 ```sh
 [atguigu@hadoop102 software]$ hadoop fs -mkdir /spark-history
 ```
 
-**４）向HDFS** **上传Spark** **纯净版jar** **包**
+**４）向 HDFS** **上传 Spark** **纯净版 jar** **包**
 
-​    说明1：由于Spark3.0.0非纯净版默认支持的是hive2.3.7版本，直接使用会和安装的Hive3.1.2出现兼容性问题。所以采用Spark纯净版jar包，不包含hadoop和hive相关依赖，避免冲突。
+​ 说明 1：由于 Spark3.0.0 非纯净版默认支持的是 hive2.3.7 版本，直接使用会和安装的 Hive3.1.2 出现兼容性问题。所以采用 Spark 纯净版 jar 包，不包含 hadoop 和 hive 相关依赖，避免冲突。
 
-​    说明2：Hive任务最终由Spark来执行，Spark任务资源分配由Yarn来调度，该任务有可能被分配到集群的任何一个节点。所以需要将Spark的依赖上传到HDFS集群路径，这样集群中任何一个节点都能获取到。
+​ 说明 2：Hive 任务最终由 Spark 来执行，Spark 任务资源分配由 Yarn 来调度，该任务有可能被分配到集群的任何一个节点。所以需要将 Spark 的依赖上传到 HDFS 集群路径，这样集群中任何一个节点都能获取到。
 
-（1）上传并解压spark-3.0.0-bin-without-hadoop.tgz
+（1）上传并解压 spark-3.0.0-bin-without-hadoop.tgz
 
 ```sh
 [atguigu@hadoop102 software]$ tar -zxvf /opt/software/spark-3.0.0-bin-without-hadoop.tgz
 ```
 
-（2）上传Spark纯净版jar包到HDFS
+（2）上传 Spark 纯净版 jar 包到 HDFS
 
 ```sh
 [atguigu@hadoop102 software]$ hadoop fs -mkdir /spark-jars
@@ -368,7 +366,7 @@ spark.driver.memory          1g
 [atguigu@hadoop102 software]$ hadoop fs -put spark-3.0.0-bin-without-hadoop/jars/* /spark-jars
 ```
 
-**５）修改hive-site.xml** **文件**
+**５）修改 hive-site.xml** **文件**
 
 ```sh
 [atguigu@hadoop102 ~]$ vim /opt/module/hive/conf/hive-site.xml
@@ -382,7 +380,7 @@ spark.driver.memory          1g
   <name>spark.yarn.jars</name>
   <value>hdfs://hadoop102:8020/spark-jars/*</value>
 </property>
- 
+
 <!--Hive执行引擎-->
 <property>
   <name>hive.execution.engine</name>
@@ -392,7 +390,7 @@ spark.driver.memory          1g
 
 **3.1.3 Hive on Spark** **测试**
 
-（1）启动hive客户端
+（1）启动 hive 客户端
 
 ```sh
 [atguigu@hadoop102 hive]$ bin/hive
@@ -404,7 +402,7 @@ spark.driver.memory          1g
 hive (default)> create table student(id int, name string);
 ```
 
-（3）通过insert测试效果
+（3）通过 insert 测试效果
 
 ```sh
 hive (default)> insert into table student values(1,'abc');
@@ -414,15 +412,15 @@ hive (default)> insert into table student values(1,'abc');
 
 ![image-20211122154440515](离线数仓.assets/image-20211122154440515.png)
 
-## 3.2 Yarn配置
+## 3.2 Yarn 配置
 
-### 3.2.1 增加ApplicationMaster资源比例
+### 3.2.1 增加 ApplicationMaster 资源比例
 
-容量调度器对每个资源队列中同时运行的Application Master占用的资源进行了限制，该限制通过*yarn.scheduler.capacity.maximum-am-resource-percent*参数实现，其默认值是0.1，表示每个资源队列上Application Master最多可使用的资源为该队列总资源的10%，目的是防止大部分资源都被Application Master占用，而导致Map/Reduce Task无法执行。
+容量调度器对每个资源队列中同时运行的 Application Master 占用的资源进行了限制，该限制通过*yarn.scheduler.capacity.maximum-am-resource-percent*参数实现，其默认值是 0.1，表示每个资源队列上 Application Master 最多可使用的资源为该队列总资源的 10%，目的是防止大部分资源都被 Application Master 占用，而导致 Map/Reduce Task 无法执行。
 
-生产环境该参数可使用默认值。但学习环境，集群资源总数很少，如果只分配10%的资源给Application Master，则可能出现，同一时刻只能运行一个Job的情况，因为一个Application Master使用的资源就可能已经达到10%的上限了。故此处可将该值适当调大。
+生产环境该参数可使用默认值。但学习环境，集群资源总数很少，如果只分配 10%的资源给 Application Master，则可能出现，同一时刻只能运行一个 Job 的情况，因为一个 Application Master 使用的资源就可能已经达到 10%的上限了。故此处可将该值适当调大。
 
-（1）在hadoop102的*/opt/module/hadoop-3.1.3/etc/hadoop/capacity-scheduler.xml*文件中**修改**如下参数值
+（1）在 hadoop102 的*/opt/module/hadoop-3.1.3/etc/hadoop/capacity-scheduler.xml*文件中**修改**如下参数值
 
 ```xml
 [atguigu@hadoop102 hadoop]$ vim capacity-scheduler.xml
@@ -436,13 +434,13 @@ hive (default)> insert into table student values(1,'abc');
 </property
 ```
 
-（2）分发capacity-scheduler.xml配置文件
+（2）分发 capacity-scheduler.xml 配置文件
 
 ```sh
 [atguigu@hadoop102 hadoop]$ xsync capacity-scheduler.xml
 ```
 
-（3）关闭正在运行的任务，重新启动yarn集群
+（3）关闭正在运行的任务，重新启动 yarn 集群
 
 ```sh
 [atguigu@hadoop103 hadoop-3.1.3]$ sbin/stop-yarn.sh
@@ -450,19 +448,17 @@ hive (default)> insert into table student values(1,'abc');
 [atguigu@hadoop103 hadoop-3.1.3]$ sbin/start-yarn.sh
 ```
 
-
-
 ## 3.3 数仓开发环境
 
-数仓开发工具可选用DBeaver或者DataGrip。两者都需要用到JDBC协议连接到Hive，故需要启动HiveServer2。
+数仓开发工具可选用 DBeaver 或者 DataGrip。两者都需要用到 JDBC 协议连接到 Hive，故需要启动 HiveServer2。
 
-**1.** **启动HiveServer2**
+**1.** **启动 HiveServer2**
 
 ```sh
 [atguigu@hadoop102 hive]$ hiveserver2
 ```
 
-**2.** **配置DataGrip** **连接**
+**2.** **配置 DataGrip** **连接**
 
 **1** **）创建连接**
 
@@ -470,11 +466,11 @@ hive (default)> insert into table student values(1,'abc');
 
 **2** **）配置连接属性**
 
-所有属性配置，和Hive的beeline客户端配置一致即可。初次使用，配置过程会提示缺少JDBC驱动，按照提示下载即可。
+所有属性配置，和 Hive 的 beeline 客户端配置一致即可。初次使用，配置过程会提示缺少 JDBC 驱动，按照提示下载即可。
 
 **3.** **测试使用**
 
-**创建数据库gmall** **，并观察是否创建成功。**
+**创建数据库 gmall** **，并观察是否创建成功。**
 
 **1** **）创建数据库**
 
@@ -482,80 +478,80 @@ hive (default)> insert into table student values(1,'abc');
 
 **3** **）修改连接，指明连接数据库**
 
-**4** **）选择当前数据库为gmall**
+**4** **）选择当前数据库为 gmall**
 
 ## 3.4 数据准备
 
-一般企业在搭建数仓时，业务系统中会存在一定的历史数据，此处为模拟真实场景，需准备若干历史数据。假定数仓上线的日期为2020-06-14，具体说明如下。 
+一般企业在搭建数仓时，业务系统中会存在一定的历史数据，此处为模拟真实场景，需准备若干历史数据。假定数仓上线的日期为 2020-06-14，具体说明如下。
 
 **1.** **用户行为日志**
 
-用户行为日志，一般是没有历史数据的，故日志只需要准备2020-06-14一天的数据。具体操作如下：
+用户行为日志，一般是没有历史数据的，故日志只需要准备 2020-06-14 一天的数据。具体操作如下：
 
-1）启动日志采集通道，包括Flume、Kafak等
+1）启动日志采集通道，包括 Flume、Kafak 等
 
-2）修改两个日志服务器（hadoop102、hadoop103）中的/opt/module/applog/application.yml配置文件，将mock.date参数改为2020-06-14。
+2）修改两个日志服务器（hadoop102、hadoop103）中的/opt/module/applog/application.yml 配置文件，将 mock.date 参数改为 2020-06-14。
 
-3）执行日志生成脚本lg.sh。
+3）执行日志生成脚本 lg.sh。
 
-4）观察HDFS是否出现相应文件。
+4）观察 HDFS 是否出现相应文件。
 
-​             ![image-20211122154949165](离线数仓.assets/image-20211122154949165.png)                  
+​ ![image-20211122154949165](离线数仓.assets/image-20211122154949165.png)
 
 **2.** **业务数据**
 
-业务数据一般存在历史数据，此处需准备2020-06-10至2020-06-14的数据。具体操作如下。
+业务数据一般存在历史数据，此处需准备 2020-06-10 至 2020-06-14 的数据。具体操作如下。
 
-1）修改hadoop102节点上的/opt/module/db_log/application.properties文件，将mock.date、mock.clear，mock.clear.user三个参数调整为如图所示的值。
+1）修改 hadoop102 节点上的/opt/module/db_log/application.properties 文件，将 mock.date、mock.clear，mock.clear.user 三个参数调整为如图所示的值。
 
- ![image-20211122155000689](离线数仓.assets/image-20211122155000689.png)
+![image-20211122155000689](离线数仓.assets/image-20211122155000689.png)
 
-2）执行模拟生成业务数据的命令，生成第一天2020-06-10的历史数据。
-
-```sh
-[atguigu@hadoop102 db_log]$ java -jar gmall2020-mock-db-2021-01-22.jar
-```
-
-3）修改*/opt/module/db_log/application.properties*文件，将mock.date、mock.clear，mock.clear.user三个参数调整为如图所示的值。
-
- ![image-20211122155024313](离线数仓.assets/image-20211122155024313.png)
-
-4）执行模拟生成业务数据的命令，生成第二天2020-06-11的历史数据。
+2）执行模拟生成业务数据的命令，生成第一天 2020-06-10 的历史数据。
 
 ```sh
 [atguigu@hadoop102 db_log]$ java -jar gmall2020-mock-db-2021-01-22.jar
 ```
 
-5）之后只修改/opt/module/db_log/application.properties文件中的mock.date参数，依次改为2020-06-12，2020-06-13，2020-06-14，并分别生成对应日期的数据。
+3）修改*/opt/module/db_log/application.properties*文件，将 mock.date、mock.clear，mock.clear.user 三个参数调整为如图所示的值。
 
-6）执行mysql_to_hdfs_init.sh脚本，将模拟生成的业务数据同步到HDFS。
+![image-20211122155024313](离线数仓.assets/image-20211122155024313.png)
+
+4）执行模拟生成业务数据的命令，生成第二天 2020-06-11 的历史数据。
+
+```sh
+[atguigu@hadoop102 db_log]$ java -jar gmall2020-mock-db-2021-01-22.jar
+```
+
+5）之后只修改/opt/module/db_log/application.properties 文件中的 mock.date 参数，依次改为 2020-06-12，2020-06-13，2020-06-14，并分别生成对应日期的数据。
+
+6）执行 mysql_to_hdfs_init.sh 脚本，将模拟生成的业务数据同步到 HDFS。
 
 ```sh
 [atguigu@hadoop102 bin]$ mysql_to_hdfs_init.sh all 2020-06-14
 ```
 
-7）观察HDFS上是否出现相应的数据
+7）观察 HDFS 上是否出现相应的数据
 
-# 第4章 数仓搭建-ODS层
+# 第 4 章 数仓搭建-ODS 层
 
 1）保持数据原貌不做任何修改，起到备份数据的作用。
 
-2）数据采用LZO压缩，减少磁盘存储空间。100G数据可以压缩到10G以内。
+2）数据采用 LZO 压缩，减少磁盘存储空间。100G 数据可以压缩到 10G 以内。
 
 3）创建分区表，防止后续的全表扫描，在企业开发中大量使用分区表。
 
 4）创建外部表。在企业开发中，除了自己用的临时表，创建内部表外，绝大多数场景都是创建外部表。
 
-## 4.1 ODS层（用户行为数据）
+## 4.1 ODS 层（用户行为数据）
 
-### 4.1.1 创建日志表ods_log
+### 4.1.1 创建日志表 ods_log
 
-1）创建支持lzo压缩的分区表
+1）创建支持 lzo 压缩的分区表
 
 （1）建表语句
 
 ```sql
-hive (gmall)> 
+hive (gmall)>
 
 drop table if exists ods_log;
 
@@ -574,38 +570,36 @@ LOCATION '/warehouse/gmall/ods/ods_log' -- 指定数据在hdfs上的存储位置
 ;
 ```
 
-说明Hive的LZO压缩：https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LZO
+说明 Hive 的 LZO 压缩：https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LZO
 
 （2）分区规划
 
-​                  ![image-20211122155206679](离线数仓.assets/image-20211122155206679.png)           
+​ ![image-20211122155206679](离线数仓.assets/image-20211122155206679.png)
 
 2）加载数据
 
- ![image-20211122155216024](离线数仓.assets/image-20211122155216024.png)
+![image-20211122155216024](离线数仓.assets/image-20211122155216024.png)
 
 ```sql
-hive (gmall)> 
+hive (gmall)>
 
 load data inpath '/origin_data/gmall/log/topic_log/2020-06-14' into table ods_log partition(dt='2020-06-14');
 ```
 
-注意：时间格式都配置成YYYY-MM-DD格式，这是Hive默认支持的时间格式
+注意：时间格式都配置成 YYYY-MM-DD 格式，这是 Hive 默认支持的时间格式
 
-3）为lzo压缩文件创建索引
+3）为 lzo 压缩文件创建索引
 
 ```sh
 [atguigu@hadoop102 bin]$ hadoop jar /opt/module/hadoop-3.1.3/share/hadoop/common/hadoop-lzo-0.4.20.jar com.hadoop.compression.lzo.DistributedLzoIndexer /warehouse/gmall/ods/ods_log/dt=2020-06-14
 ```
 
+### 4.1.2 Shell 中单引号和双引号区别
 
-
-### 4.1.2 Shell中单引号和双引号区别
-
-1）在/home/atguigu/bin创建一个test.sh文件
+1）在/home/atguigu/bin 创建一个 test.sh 文件
 
 ```sh
-[atguigu@hadoop102 bin]$ vim test.sh 
+[atguigu@hadoop102 bin]$ vim test.sh
 ```
 
 在文件中添加如下内容
@@ -613,7 +607,7 @@ load data inpath '/origin_data/gmall/log/topic_log/2020-06-14' into table ods_lo
 ```sh
 #!/bin/bash
 
-do_date=$1 
+do_date=$1
 
 echo '$do_date'
 
@@ -637,7 +631,7 @@ $do_date
 "$do_date"
 ```
 
-2020年 06月 18日 星期四 21:02:08 CST
+2020 年 06 月 18 日 星期四 21:02:08 CST
 
 3）总结：
 
@@ -651,17 +645,17 @@ $do_date
 
 （5）单引号内部嵌套双引号，不取出变量值
 
-### 4.1.3 ODS层日志表加载数据脚本
+### 4.1.3 ODS 层日志表加载数据脚本
 
 **1** **）编写脚本**
 
-（1）在hadoop102的/home/atguigu/bin目录下创建脚本
+（1）在 hadoop102 的/home/atguigu/bin 目录下创建脚本
 
 ```sh
 [atguigu@hadoop102 bin]$ vim hdfs_to_ods_log.sh
 ```
 
-​    在脚本中编写如下内容
+​ 在脚本中编写如下内容
 
 ```sh
 #!/bin/bash
@@ -672,9 +666,9 @@ APP=gmall
 
 if [ -n "$1" ] ;then
   do_date=$1
-else 
+else
   do_date=`date -d "-1 day" +%F`
-fi  
+fi
 
 echo ================== 日志日期为 $do_date ==================
 sql="
@@ -685,19 +679,19 @@ hive -e "$sql"
 hadoop jar /opt/module/hadoop-3.1.3/share/hadoop/common/hadoop-lzo-0.4.20.jar com.hadoop.compression.lzo.DistributedLzoIndexer /warehouse/$APP/ods/ods_log/dt=$do_date
 ```
 
-（1）说明1：
+（1）说明 1：
 
 **[ -n 变量值 ] 判断变量的值，是否为空**
 
--- 变量的值，非空，返回true
+-- 变量的值，非空，返回 true
 
--- 变量的值，为空，返回false
+-- 变量的值，为空，返回 false
 
 **注意：[ -n 变量值 ]不会解析数据，使用[ -n 变量值 ]时，需要对变量加上双引号(" ")**
 
-（2）说明2：
+（2）说明 2：
 
-查看date命令的使用，date --help
+查看 date 命令的使用，date --help
 
 （2）增加脚本执行权限
 
@@ -715,13 +709,13 @@ hadoop jar /opt/module/hadoop-3.1.3/share/hadoop/common/hadoop-lzo-0.4.20.jar co
 
 （2）查看导入数据
 
-## 4.2 ODS层（业务数据）
+## 4.2 ODS 层（业务数据）
 
-ODS层业务表分区规划如下
+ODS 层业务表分区规划如下
 
 ![image-20211122155617002](离线数仓.assets/image-20211122155617002.png)
 
-ODS层业务表数据装载思路如下
+ODS 层业务表数据装载思路如下
 
 ![image-20211122155626617](离线数仓.assets/image-20211122155626617.png)
 
@@ -758,8 +752,6 @@ STORED AS
 
 LOCATION '/warehouse/gmall/ods/ods_activity_info/';
 ```
-
-
 
 ### 4.2.2 活动规则表
 
@@ -799,8 +791,6 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_activity_rule/';
 ```
 
-
-
 ### 4.2.3 一级品类表
 
 ```sql
@@ -826,8 +816,6 @@ STORED AS
 
 LOCATION '/warehouse/gmall/ods/ods_base_category1/';
 ```
-
-
 
 ### 4.2.4 二级品类表
 
@@ -857,8 +845,6 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_base_category2/';
 ```
 
-
-
 ### 4.2.5 三级品类表
 
 ```sql
@@ -886,8 +872,6 @@ STORED AS
 
 LOCATION '/warehouse/gmall/ods/ods_base_category3/';
 ```
-
-
 
 ### 4.2.6 编码字典表
 
@@ -921,8 +905,6 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_base_dic/';
 ```
 
-
-
 ### 4.2.7 省份表
 
 ```sql
@@ -955,8 +937,6 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_base_province/';
 ```
 
-
-
 ### 4.2.8 地区表
 
 ```sql
@@ -980,8 +960,6 @@ STORED AS
 
 LOCATION '/warehouse/gmall/ods/ods_base_region/';
 ```
-
-
 
 ### 4.2.9 品牌表
 
@@ -1008,8 +986,6 @@ STORED AS
 
 LOCATION '/warehouse/gmall/ods/ods_base_trademark/';
 ```
-
-
 
 ### 4.2.10 购物车表
 
@@ -1057,8 +1033,6 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_cart_info/';
 ```
 
-
-
 ### 4.2.11 评论表
 
 ```sql
@@ -1094,8 +1068,6 @@ STORED AS
 
 LOCATION '/warehouse/gmall/ods/ods_comment_info/';
 ```
-
-
 
 ### 4.2.12 优惠券信息表
 
@@ -1151,8 +1123,6 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_coupon_info/';
 ```
 
-
-
 ### 4.2.13 优惠券领用表
 
 ```sql
@@ -1193,8 +1163,6 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_coupon_use/';
 ```
 
-
-
 ### 4.2.14 收藏表
 
 ```sql
@@ -1230,8 +1198,6 @@ STORED AS
 
 LOCATION '/warehouse/gmall/ods/ods_favor_info/';
 ```
-
-
 
 ### 4.2.15 订单明细表
 
@@ -1279,8 +1245,6 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_order_detail/';
 ```
 
-
-
 ### 4.2.16 订单明细活动关联表
 
 ```sql
@@ -1317,8 +1281,6 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_order_detail_activity/';
 ```
 
-
-
 ### 4.2.17 订单明细优惠券关联表
 
 ```sql
@@ -1354,8 +1316,6 @@ STORED AS
 
 LOCATION '/warehouse/gmall/ods/ods_order_detail_coupon/';
 ```
-
-
 
 ### 4.2.18 订单表
 
@@ -1413,8 +1373,6 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_order_info/';
 ```
 
-
-
 ### 4.2.19 退单表
 
 ```sql
@@ -1457,8 +1415,6 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_order_refund_info/';
 ```
 
-
-
 ### 4.2.20 订单状态日志表
 
 ```sql
@@ -1488,8 +1444,6 @@ STORED AS
 
 LOCATION '/warehouse/gmall/ods/ods_order_status_log/';
 ```
-
-
 
 ### 4.2.21 支付表
 
@@ -1535,8 +1489,6 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_payment_info/';
 ```
 
-
-
 ### 4.2.22 退款表
 
 ```sql
@@ -1581,8 +1533,6 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_refund_payment/';
 ```
 
-
-
 ### 4.2.23 商品平台属性表
 
 ```sql
@@ -1616,8 +1566,6 @@ STORED AS
 
 LOCATION '/warehouse/gmall/ods/ods_sku_attr_value/';
 ```
-
-
 
 ### 4.2.24 商品（SKU）表
 
@@ -1661,8 +1609,6 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_sku_info/';
 ```
 
-
-
 ### 4.2.25 商品销售属性表
 
 ```sql
@@ -1699,8 +1645,6 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_sku_sale_attr_value/';
 ```
 
-
-
 ### 4.2.26 商品（SPU）表
 
 ```sql
@@ -1730,8 +1674,6 @@ STORED AS
 
 LOCATION '/warehouse/gmall/ods/ods_spu_info/';
 ```
-
-
 
 ### 4.2.27 用户表
 
@@ -1777,13 +1719,11 @@ STORED AS
 LOCATION '/warehouse/gmall/ods/ods_user_info/';
 ```
 
-
-
-### 4.2.28 ODS层业务表首日数据装载脚本
+### 4.2.28 ODS 层业务表首日数据装载脚本
 
 **1** **）编写脚本**
 
-（1）在/home/atguigu/bin目录下创建脚本hdfs_to_ods_db_init.sh
+（1）在/home/atguigu/bin 目录下创建脚本 hdfs_to_ods_db_init.sh
 
 ```
 [atguigu@hadoop102 bin]$ vim hdfs_to_ods_db_init.sh
@@ -1797,20 +1737,20 @@ LOCATION '/warehouse/gmall/ods/ods_user_info/';
 APP=gmall
 if [ -n "$2" ] ;then
   do_date=$2
-else 
+else
   echo "请传入日期参数"
   exit
-fi 
+fi
 
-ods_order_info=" 
+ods_order_info="
 load data inpath '/origin_data/$APP/db/order_info/$do_date' OVERWRITE into table ${APP}.ods_order_info partition(dt='$do_date');"
 
 ods_order_detail="
 load data inpath '/origin_data/$APP/db/order_detail/$do_date' OVERWRITE into table ${APP}.ods_order_detail partition(dt='$do_date');"
- 
+
 ods_sku_info="
 load data inpath '/origin_data/$APP/db/sku_info/$do_date' OVERWRITE into table ${APP}.ods_sku_info partition(dt='$do_date');"
- 
+
 ods_user_info="
 load data inpath '/origin_data/$APP/db/user_info/$do_date' OVERWRITE into table ${APP}.ods_user_info partition(dt='$do_date');"
 
@@ -1857,7 +1797,7 @@ ods_spu_info="
 load data inpath '/origin_data/$APP/db/spu_info/$do_date' OVERWRITE into table ${APP}.ods_spu_info partition(dt='$do_date'); "
 
 ods_activity_rule="
-load data inpath '/origin_data/$APP/db/activity_rule/$do_date' OVERWRITE into table ${APP}.ods_activity_rule partition(dt='$do_date');" 
+load data inpath '/origin_data/$APP/db/activity_rule/$do_date' OVERWRITE into table ${APP}.ods_activity_rule partition(dt='$do_date');"
 
 ods_base_dic="
 load data inpath '/origin_data/$APP/db/base_dic/$do_date' OVERWRITE into table ${APP}.ods_base_dic partition(dt='$do_date'); "
@@ -1877,7 +1817,7 @@ load data inpath '/origin_data/$APP/db/sku_attr_value/$do_date' OVERWRITE into t
 ods_sku_sale_attr_value="
 load data inpath '/origin_data/$APP/db/sku_sale_attr_value/$do_date' OVERWRITE into table ${APP}.ods_sku_sale_attr_value partition(dt='$do_date'); "
 
-ods_base_province=" 
+ods_base_province="
 load data inpath '/origin_data/$APP/db/base_province/$do_date' OVERWRITE into table ${APP}.ods_base_province;"
 
 ods_base_region="
@@ -1887,11 +1827,11 @@ case $1 in
   "ods_order_info"){
 ​    hive -e "$ods_order_info"
   };;
-  
+
   "ods_order_detail"){
 ​    hive -e "$ods_order_detail"
   };;
-  
+
   "ods_sku_info"){
 ​    hive -e "$ods_sku_info"
   };;
@@ -1934,7 +1874,7 @@ case $1 in
   "ods_coupon_info"){
 ​    hive -e "$ods_coupon_info"
   };;
-  
+
   "ods_coupon_use"){
 ​    hive -e "$ods_coupon_use"
   };;
@@ -2014,11 +1954,11 @@ esac
 
 （2）查看数据是否导入成功
 
-### 4.2.29 ODS层业务表每日数据装载脚本
+### 4.2.29 ODS 层业务表每日数据装载脚本
 
 **1** **）编写脚本**
 
-（1）在/home/atguigu/bin目录下创建脚本hdfs_to_ods_db.sh
+（1）在/home/atguigu/bin 目录下创建脚本 hdfs_to_ods_db.sh
 
 ```
 [atguigu@hadoop102 bin]$ vim hdfs_to_ods_db.sh
@@ -2027,9 +1967,9 @@ esac
 在脚本中填写如下内容
 
 ```sh
-#!/bin/bash 
+#!/bin/bash
 
-APP=gmall 
+APP=gmall
 
 \# 如果是输入的日期按照取输入日期；如果没输入日期取当前时间的前一天
 
@@ -2037,13 +1977,13 @@ if [ -n "$2" ] ;then
 
   do_date=$2
 
-else 
+else
 
   do_date=`date -d "-1 day" +%F`
 
 fi
 
-ods_order_info=" 
+ods_order_info="
 
 load data inpath '/origin_data/$APP/db/order_info/$do_date' OVERWRITE into table ${APP}.ods_order_info partition(dt='$do_date');"
 
@@ -2117,7 +2057,7 @@ load data inpath '/origin_data/$APP/db/spu_info/$do_date' OVERWRITE into table $
 
 ods_activity_rule="
 
-load data inpath '/origin_data/$APP/db/activity_rule/$do_date' OVERWRITE into table ${APP}.ods_activity_rule partition(dt='$do_date');" 
+load data inpath '/origin_data/$APP/db/activity_rule/$do_date' OVERWRITE into table ${APP}.ods_activity_rule partition(dt='$do_date');"
 
 ods_base_dic="
 
@@ -2143,7 +2083,7 @@ ods_sku_sale_attr_value="
 
 load data inpath '/origin_data/$APP/db/sku_sale_attr_value/$do_date' OVERWRITE into table ${APP}.ods_sku_sale_attr_value partition(dt='$do_date'); "
 
-ods_base_province=" 
+ods_base_province="
 
 load data inpath '/origin_data/$APP/db/base_province/$do_date' OVERWRITE into table ${APP}.ods_base_province;"
 
@@ -2276,7 +2216,7 @@ esac
 
 （2）查看数据是否导入成功
 
-# 第5章 数仓搭建-DIM层
+# 第 5 章 数仓搭建-DIM 层
 
 ## 5.1 商品维度表（全量）
 
@@ -2338,11 +2278,11 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 **2.** **分区规划**
 
-​           ![image-20211122161537184](离线数仓.assets/image-20211122161537184.png)                    
+​ ![image-20211122161537184](离线数仓.assets/image-20211122161537184.png)
 
 **3.** **数据装载**
 
- ![image-20211122161544743](离线数仓.assets/image-20211122161544743.png)
+![image-20211122161544743](离线数仓.assets/image-20211122161544743.png)
 
 **１）Hive** **读取索引文件问题**
 
@@ -2358,20 +2298,20 @@ hive (gmall)> select count(*) from ods_log;
 
 **（2** **）两次查询结果不一致。**
 
-**原因是**select * from ods_log不执行MR操作，直接采用的是ods_log建表语句中指定的DeprecatedLzoTextInputFormat，能够识别lzo.index为索引文件。
+**原因是**select \* from ods_log 不执行 MR 操作，直接采用的是 ods_log 建表语句中指定的 DeprecatedLzoTextInputFormat，能够识别 lzo.index 为索引文件。
 
-select count(*) from ods_log执行MR操作，会先经过hive.input.format，其默认值为CombineHiveInputFormat，其会先将索引文件当成小文件合并，将其当做普通文件处理。更严重的是，这会导致LZO文件无法切片。
+select count(\*) from ods_log 执行 MR 操作，会先经过 hive.input.format，其默认值为 CombineHiveInputFormat，其会先将索引文件当成小文件合并，将其当做普通文件处理。更严重的是，这会导致 LZO 文件无法切片。
 
 ```sql
-hive (gmall)> 
+hive (gmall)>
 
 hive.input.format=org.apache.hadoop.hive.ql.io.CombineHiveInputFormat;
 ```
 
-**解决办法：修改**CombineHiveInputFormat为HiveInputFormat
+**解决办法：修改**CombineHiveInputFormat 为 HiveInputFormat
 
 ```sql
-hive (gmall)> 
+hive (gmall)>
 
 set hive.input.format=org.apache.hadoop.hive.ql.io.HiveInputFormat;
 ```
@@ -2808,8 +2748,6 @@ left join attr on sku.id=attr.sku_id
 left join sale_attr on sku.id=sale_attr.sku_id;
 ```
 
-
-
 ## 5.2 优惠券维度表（全量）
 
 **1.** **建表语句**
@@ -2864,11 +2802,11 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 **2.** **分区规划**
 
- ![image-20211122161824676](离线数仓.assets/image-20211122161824676.png)
+![image-20211122161824676](离线数仓.assets/image-20211122161824676.png)
 
 **3.** **数据装载**
 
- ![image-20211122161833942](离线数仓.assets/image-20211122161833942.png)
+![image-20211122161833942](离线数仓.assets/image-20211122161833942.png)
 
 首日装载
 
@@ -2924,17 +2862,15 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 **2.** **分区规划**
 
- ![image-20211122161941106](离线数仓.assets/image-20211122161941106.png)
+![image-20211122161941106](离线数仓.assets/image-20211122161941106.png)
 
 **3.** **数据装载**
 
- ![image-20211122161949505](离线数仓.assets/image-20211122161949505.png)
+![image-20211122161949505](离线数仓.assets/image-20211122161949505.png)
 
 **1** **）首日装载**
 
 2 )每日装载
-
-
 
 ## 5.4 地区维度表（特殊）
 
@@ -2997,8 +2933,6 @@ from ods_base_province bp
 
 join ods_base_region br on bp.region_id = br.id;
 ```
-
-
 
 ## 5.5 时间维度表（特殊）
 
@@ -3072,7 +3006,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
 LOCATION '/warehouse/gmall/tmp/tmp_dim_date_info/';
 ```
 
-2）将数据文件上传到HFDS上临时表指定路径/warehouse/gmall/tmp/tmp_dim_date_info/ 
+2）将数据文件上传到 HFDS 上临时表指定路径/warehouse/gmall/tmp/tmp_dim_date_info/
 
 3）执行以下语句将其导入时间维度表
 
@@ -3086,27 +3020,25 @@ insert overwrite table dim_date_info select * from tmp_dim_date_info;
 select * from dim_date_info;
 ```
 
-
-
 ## 5.6 用户维度表（拉链表）
 
 ### 5.6.1 拉链表概述
 
 **1** **）什么是拉链表**
 
- ![image-20211122162307480](离线数仓.assets/image-20211122162307480.png)
+![image-20211122162307480](离线数仓.assets/image-20211122162307480.png)
 
 **2** **）为什么要做拉链表**
 
- ![image-20211122162315967](离线数仓.assets/image-20211122162315967.png)
+![image-20211122162315967](离线数仓.assets/image-20211122162315967.png)
 
 **3** **）如何使用拉链表**
 
- ![image-20211122162333787](离线数仓.assets/image-20211122162333787.png)
+![image-20211122162333787](离线数仓.assets/image-20211122162333787.png)
 
 **4** **）拉链表形成过程**
 
- ![image-20211122162343430](离线数仓.assets/image-20211122162343430.png)
+![image-20211122162343430](离线数仓.assets/image-20211122162343430.png)
 
 ### 5.6.2 制作拉链表
 
@@ -3156,15 +3088,15 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 **2.** **分区规划**
 
- ![image-20211122162415074](离线数仓.assets/image-20211122162415074.png)
+![image-20211122162415074](离线数仓.assets/image-20211122162415074.png)
 
 **3.** **数据装载**
 
- ![image-20211122162421231](离线数仓.assets/image-20211122162421231.png)
+![image-20211122162421231](离线数仓.assets/image-20211122162421231.png)
 
 **1** **）首日装载**
 
-拉链表首日装载，需要进行初始化操作，具体工作为将截止到初始化当日的全部历史用户导入一次性导入到拉链表中。目前的ods_user_info表的第一个分区，即2020-06-14分区中就是全部的历史用户，故将该分区数据进行一定处理后导入拉链表的9999-99-99分区即可。
+拉链表首日装载，需要进行初始化操作，具体工作为将截止到初始化当日的全部历史用户导入一次性导入到拉链表中。目前的 ods_user_info 表的第一个分区，即 2020-06-14 分区中就是全部的历史用户，故将该分区数据进行一定处理后导入拉链表的 9999-99-99 分区即可。
 
 ```sql
 略
@@ -3174,7 +3106,7 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 **（1** **）实现思路**
 
- ![image-20211122162459905](离线数仓.assets/image-20211122162459905.png)
+![image-20211122162459905](离线数仓.assets/image-20211122162459905.png)
 
 **（2** **）sql** **编写**
 
@@ -3182,13 +3114,11 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 略
 ```
 
-
-
-## 5.7 DIM层首日数据装载脚本
+## 5.7 DIM 层首日数据装载脚本
 
 **1** **）编写脚本**
 
-（1）在/home/atguigu/bin目录下创建脚本ods_to_dim_db_init.sh
+（1）在/home/atguigu/bin 目录下创建脚本 ods_to_dim_db_init.sh
 
 ```sql
 [atguigu@hadoop102 bin]$ vim ods_to_dim_db_init.sh
@@ -3214,15 +3144,15 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 [atguigu@hadoop102 bin]$ ods_to_dim_db_init.sh all 2020-06-14
 ```
 
-**注意：该脚本不包含时间维度表的装载，时间维度表需手动装载数据，参考5.5** **节。**
+**注意：该脚本不包含时间维度表的装载，时间维度表需手动装载数据，参考 5.5** **节。**
 
 （2）查看数据是否导入成功
 
-## 5.8 DIM层每日数据装载脚本
+## 5.8 DIM 层每日数据装载脚本
 
 **1** **）编写脚本**
 
-（1）在/home/atguigu/bin目录下创建脚本ods_to_dim_db.sh
+（1）在/home/atguigu/bin 目录下创建脚本 ods_to_dim_db.sh
 
 ```
 [atguigu@hadoop102 bin]$ vim ods_to_dim_db.sh
@@ -3250,13 +3180,13 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 （2）查看数据是否导入成功
 
-# 第6章 数仓搭建-DWD层
+# 第 6 章 数仓搭建-DWD 层
 
 1）对用户行为数据解析。
 
 2）对业务数据采用**维度模型**重新建模。
 
-## 6.1 DWD层（用户行为日志）
+## 6.1 DWD 层（用户行为日志）
 
 ### 6.1.1 日志解析思路
 
@@ -3264,17 +3194,17 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 （1）页面埋点日志
 
-​           ![image-20211122163753901](离线数仓.assets/image-20211122163753901.png)                    
+​ ![image-20211122163753901](离线数仓.assets/image-20211122163753901.png)
 
 （2）启动日志
 
- ![image-20211122163804480](离线数仓.assets/image-20211122163804480.png)
+![image-20211122163804480](离线数仓.assets/image-20211122163804480.png)
 
 **2** **）日志解析思路**
 
- ![image-20211122163845528](离线数仓.assets/image-20211122163845528.png)
+![image-20211122163845528](离线数仓.assets/image-20211122163845528.png)
 
-### 6.1.2 get_json_object函数使用
+### 6.1.2 get_json_object 函数使用
 
 1）数据
 
@@ -3282,7 +3212,7 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 [{"name":"大郎","sex":"男","age":"25"},{"name":"西门庆","sex":"男","age":"47"}]
 ```
 
-2）取出第一个json对象
+2）取出第一个 json 对象
 
 ```
 hive (gmall)>
@@ -3292,7 +3222,7 @@ select get_json_object('[{"name":"大郎","sex":"男","age":"25"},{"name":"西�
 
 结果是：{"name":"大郎","sex":"男","age":"25"}
 
-3）取出第一个json的age字段的值
+3）取出第一个 json 的 age 字段的值
 
 ```
 hive (gmall)>
@@ -3304,9 +3234,9 @@ SELECT get_json_object('[{"name":"大郎","sex":"男","age":"25"},{"name":"西�
 
 ### 6.1.3 启动日志表
 
-**启动日志解析思路：**启动日志表中每行数据对应一个启动记录，一个启动记录应该包含日志中的公共信息和启动信息。先将所有包含start字段的日志过滤出来，然后使用get_json_object函数解析每个字段。
+**启动日志解析思路：**启动日志表中每行数据对应一个启动记录，一个启动记录应该包含日志中的公共信息和启动信息。先将所有包含 start 字段的日志过滤出来，然后使用 get_json_object 函数解析每个字段。
 
- ![image-20211122163937450](离线数仓.assets/image-20211122163937450.png)
+![image-20211122163937450](离线数仓.assets/image-20211122163937450.png)
 
 **1** **）建表语句**
 
@@ -3360,10 +3290,10 @@ TBLPROPERTIES('parquet.compression'='lzo') -- 采用LZO压缩
 
 **2** **）数据导入**
 
- ![image-20211122164013393](离线数仓.assets/image-20211122164013393.png)
+![image-20211122164013393](离线数仓.assets/image-20211122164013393.png)
 
 ```sql
-hive (gmall)> 
+hive (gmall)>
 
 insert overwrite table dwd_start_log partition(dt='2020-06-14')
 
@@ -3409,18 +3339,16 @@ and get_json_object(line,'$.start') is not null;
 **3 ** **）查看数据**
 
 ```
-hive (gmall)> 
+hive (gmall)>
 
 select * from dwd_start_log where dt='2020-06-14' limit 2;
 ```
 
-
-
 ### 6.1.4 页面日志表
 
-**页面日志解析思路：**页面日志表中每行数据对应一个页面访问记录，一个页面访问记录应该包含日志中的公共信息和页面信息。先将所有包含page字段的日志过滤出来，然后使用get_json_object函数解析每个字段。
+**页面日志解析思路：**页面日志表中每行数据对应一个页面访问记录，一个页面访问记录应该包含日志中的公共信息和页面信息。先将所有包含 page 字段的日志过滤出来，然后使用 get_json_object 函数解析每个字段。
 
- ![image-20211122164043980](离线数仓.assets/image-20211122164043980.png)
+![image-20211122164043980](离线数仓.assets/image-20211122164043980.png)
 
 **1** **）建表语句**
 
@@ -3523,18 +3451,16 @@ and get_json_object(line,'$.page') is not null;
 **3** **）查看数据**
 
 ```
-hive (gmall)> 
+hive (gmall)>
 
 select * from dwd_page_log where dt='2020-06-14' limit 2;
 ```
 
-
-
 ### 6.1.5 动作日志表
 
-**动作日志解析思路：**动作日志表中每行数据对应用户的一个动作记录，一个动作记录应当包含公共信息、页面信息以及动作信息。先将包含action字段的日志过滤出来，然后通过UDTF函数，将action数组“炸开”（类似于explode函数的效果），然后使用get_json_object函数解析每个字段。
+**动作日志解析思路：**动作日志表中每行数据对应用户的一个动作记录，一个动作记录应当包含公共信息、页面信息以及动作信息。先将包含 action 字段的日志过滤出来，然后通过 UDTF 函数，将 action 数组“炸开”（类似于 explode 函数的效果），然后使用 get_json_object 函数解析每个字段。
 
- ![image-20211122164134268](离线数仓.assets/image-20211122164134268.png)
+![image-20211122164134268](离线数仓.assets/image-20211122164134268.png)
 
 **1** **）建表语句**
 
@@ -3592,17 +3518,15 @@ LOCATION '/warehouse/gmall/dwd/dwd_action_log'
 TBLPROPERTIES('parquet.compression'='lzo');
 ```
 
-**2**  **）创建UDTF** **函数——设计思路**
+**2** **）创建 UDTF** **函数——设计思路**
 
- ![image-20211122164222957](离线数仓.assets/image-20211122164222957.png)
+![image-20211122164222957](离线数仓.assets/image-20211122164222957.png)
 
- ![image-20211122164501471](离线数仓.assets/image-20211122164501471.png)
+![image-20211122164501471](离线数仓.assets/image-20211122164501471.png)
 
- 
+**3** **）创建 UDTF** **函数——编写代码**
 
-**3** **）创建UDTF** **函数——编写代码**
-
-**（1** **）创建一个maven** **工程：hivefunction**
+**（1** **）创建一个 maven** **工程：hivefunction**
 
 **（2** **）创建包名：com.atguigu.hive.udtf**
 
@@ -3728,7 +3652,7 @@ public class ExplodeJSONArray extends GenericUDTF {
 
 （1）打包
 
-（2）将hivefunction-1.0-SNAPSHOT.jar上传到hadoop102的/opt/module，然后再将该jar包上传到HDFS的/user/hive/jars路径下
+（2）将 hivefunction-1.0-SNAPSHOT.jar 上传到 hadoop102 的/opt/module，然后再将该 jar 包上传到 HDFS 的/user/hive/jars 路径下
 
 ```
 [atguigu@hadoop102 module]$ hadoop fs -mkdir -p /user/hive/jars
@@ -3736,13 +3660,13 @@ public class ExplodeJSONArray extends GenericUDTF {
 [atguigu@hadoop102 module]$ hadoop fs -put hivefunction-1.0-SNAPSHOT.jar /user/hive/jars
 ```
 
-（3）创建永久函数与开发好的java class关联
+（3）创建永久函数与开发好的 java class 关联
 
 ```sql
 create function explode_json_array as 'com.atguigu.hive.udtf.ExplodeJSONArray' using jar 'hdfs://hadoop102:8020/user/hive/jars/hivefunction-1.0-SNAPSHOT.jar';
 ```
 
-（4）注意：如果修改了自定义函数重新生成jar包怎么处理？只需要替换HDFS路径上的旧jar包，然后重启Hive客户端即可。
+（4）注意：如果修改了自定义函数重新生成 jar 包怎么处理？只需要替换 HDFS 路径上的旧 jar 包，然后重启 Hive 客户端即可。
 
 **5** **）数据导入**
 
@@ -3802,15 +3726,11 @@ and get_json_object(line,'$.actions') is not null;
 select * from dwd_action_log where dt='2020-06-14' limit 2;
 ```
 
-
-
 ### 6.1.6 曝光日志表
 
-**曝光日志解析思路：**曝光日志表中每行数据对应一个曝光记录，一个曝光记录应当包含公共信息、页面信息以及曝光信息。先将包含display字段的日志过滤出来，然后通过UDTF函数，将display数组“炸开”（类似于explode函数的效果），然后使用get_json_object函数解析每个字段。
+**曝光日志解析思路：**曝光日志表中每行数据对应一个曝光记录，一个曝光记录应当包含公共信息、页面信息以及曝光信息。先将包含 display 字段的日志过滤出来，然后通过 UDTF 函数，将 display 数组“炸开”（类似于 explode 函数的效果），然后使用 get_json_object 函数解析每个字段。
 
-![image-20211122164805459](离线数仓.assets/image-20211122164805459.png) 
-
-
+![image-20211122164805459](离线数仓.assets/image-20211122164805459.png)
 
 **1** **）建表语句**
 
@@ -3869,7 +3789,7 @@ STORED AS PARQUET
 
 LOCATION '/warehouse/gmall/dwd/dwd_display_log'
 
-TBLPROPERTIES('parquet.compression'='lzo'); 
+TBLPROPERTIES('parquet.compression'='lzo');
 ```
 
 **2 ** **）数据导入**
@@ -3934,11 +3854,9 @@ and get_json_object(line,'$.displays') is not null;
 select * from dwd_display_log where dt='2020-06-14' limit 2;
 ```
 
-
-
 ### 6.1.7 错误日志表
 
-**错误日志解析思路：**错误日志表中每行数据对应一个错误记录，为方便定位错误，一个错误记录应当包含与之对应的公共信息、页面信息、曝光信息、动作信息、启动信息以及错误信息。先将包含err字段的日志过滤出来，然后使用get_json_object函数解析所有字段 
+**错误日志解析思路：**错误日志表中每行数据对应一个错误记录，为方便定位错误，一个错误记录应当包含与之对应的公共信息、页面信息、曝光信息、动作信息、启动信息以及错误信息。先将包含 err 字段的日志过滤出来，然后使用 get_json_object 函数解析所有字段
 
 ![image-20211122165033041](离线数仓.assets/image-20211122165033041.png)
 
@@ -4008,7 +3926,7 @@ LOCATION '/warehouse/gmall/dwd/dwd_error_log'
 TBLPROPERTIES('parquet.compression'='lzo');
 ```
 
-**说明：此处为对动作数组和曝光数组做处理，如需分析错误与单个动作或曝光的关联，可先使用explode_json_array** **函数将数组“炸开”，再使用get_json_object** **函数获取具体字段。**
+**说明：此处为对动作数组和曝光数组做处理，如需分析错误与单个动作或曝光的关联，可先使用 explode_json_array** **函数将数组“炸开”，再使用 get_json_object** **函数获取具体字段。**
 
 **4 ** **）数据导入**
 
@@ -4075,22 +3993,22 @@ and get_json_object(line,'$.err') is not null;
 **5** **）查看数据**
 
 ```
-hive (gmall)> 
+hive (gmall)>
 
 select * from dwd_error_log where dt='2020-06-14' limit 2;
 ```
 
-### 6.1.8 DWD层用户行为数据加载脚本
+### 6.1.8 DWD 层用户行为数据加载脚本
 
 1）编写脚本
 
-（1）在hadoop102的/home/atguigu/bin目录下创建脚本
+（1）在 hadoop102 的/home/atguigu/bin 目录下创建脚本
 
 ```
 [atguigu@hadoop102 bin]$ vim ods_to_dwd_log.sh
 ```
 
-​    在脚本中编写如下内容
+​ 在脚本中编写如下内容
 
 ```sh
 略
@@ -4112,9 +4030,9 @@ select * from dwd_error_log where dt='2020-06-14' limit 2;
 
 （2）查询导入结果
 
-## 6.2 DWD层（业务数据）
+## 6.2 DWD 层（业务数据）
 
-业务数据方面DWD层的搭建主要注意点在于维度建模。
+业务数据方面 DWD 层的搭建主要注意点在于维度建模。
 
 ### 6.2.1 评价事实表（事务型事实表）
 
@@ -4152,11 +4070,11 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 2）分区规划
 
- ![image-20211122165338568](离线数仓.assets/image-20211122165338568.png)
+![image-20211122165338568](离线数仓.assets/image-20211122165338568.png)
 
 3）数据装载
 
- ![image-20211122165347102](离线数仓.assets/image-20211122165347102.png)
+![image-20211122165347102](离线数仓.assets/image-20211122165347102.png)
 
 （1）首日装载
 
@@ -4169,8 +4087,6 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 ```sql
 略
 ```
-
-
 
 ### 6.2.2 订单明细事实表（事务型事实表）
 
@@ -4226,11 +4142,11 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 2）分区规划
 
- ![image-20211122165437894](离线数仓.assets/image-20211122165437894.png)
+![image-20211122165437894](离线数仓.assets/image-20211122165437894.png)
 
 3）数据装载
 
- ![image-20211122165444638](离线数仓.assets/image-20211122165444638.png)
+![image-20211122165444638](离线数仓.assets/image-20211122165444638.png)
 
 （1）首日装载
 
@@ -4243,8 +4159,6 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 ```sql
 略
 ```
-
-
 
 ### 6.2.3 退单事实表（事务型事实表）
 
@@ -4288,11 +4202,11 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 2）分区规划
 
- ![image-20211122165610105](离线数仓.assets/image-20211122165610105.png)
+![image-20211122165610105](离线数仓.assets/image-20211122165610105.png)
 
 3）数据装载
 
- ![image-20211122165618813](离线数仓.assets/image-20211122165618813.png)
+![image-20211122165618813](离线数仓.assets/image-20211122165618813.png)
 
 （1）首日装载
 
@@ -4335,11 +4249,11 @@ DROP TABLE IF EXISTS dwd_cart_info;
 
 2）分区规划
 
- ![image-20211122165852704](离线数仓.assets/image-20211122165852704.png)
+![image-20211122165852704](离线数仓.assets/image-20211122165852704.png)
 
 3）数据装载
 
- ![image-20211122165901178](离线数仓.assets/image-20211122165901178.png)
+![image-20211122165901178](离线数仓.assets/image-20211122165901178.png)
 
 （1）首日装载
 
@@ -4352,8 +4266,6 @@ DROP TABLE IF EXISTS dwd_cart_info;
 ```sql
 略
 ```
-
-
 
 ### 6.2.5 收藏事实表（周期型快照事实表，每日快照）
 
@@ -4391,11 +4303,11 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 2）分区规划
 
- ![image-20211122165955932](离线数仓.assets/image-20211122165955932.png)
+![image-20211122165955932](离线数仓.assets/image-20211122165955932.png)
 
 3）数据装载
 
- ![image-20211122170002062](离线数仓.assets/image-20211122170002062.png)
+![image-20211122170002062](离线数仓.assets/image-20211122170002062.png)
 
 （1）首日装载
 
@@ -4408,8 +4320,6 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 ```sql
 略
 ```
-
-
 
 ### 6.2.6 优惠券领用事实表（累积型快照事实表）
 
@@ -4451,11 +4361,11 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 2）分区规划
 
- ![image-20211122170046550](离线数仓.assets/image-20211122170046550.png)
+![image-20211122170046550](离线数仓.assets/image-20211122170046550.png)
 
 3）数据装载
 
- ![image-20211122170059833](离线数仓.assets/image-20211122170059833.png)
+![image-20211122170059833](离线数仓.assets/image-20211122170059833.png)
 
 （1）首日装载
 
@@ -4467,9 +4377,7 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 a.装载逻辑
 
- ![image-20211122170126867](离线数仓.assets/image-20211122170126867.png)
-
-
+![image-20211122170126867](离线数仓.assets/image-20211122170126867.png)
 
 ### 6.2.7 支付事实表（累积型快照事实表）
 
@@ -4515,11 +4423,11 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 2）分区规划
 
- ![image-20211122170230737](离线数仓.assets/image-20211122170230737.png)
+![image-20211122170230737](离线数仓.assets/image-20211122170230737.png)
 
 3）数据装载
 
- ![image-20211122170238290](离线数仓.assets/image-20211122170238290.png)
+![image-20211122170238290](离线数仓.assets/image-20211122170238290.png)
 
 （1）首日装载
 
@@ -4532,8 +4440,6 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 ```sql
 略
 ```
-
-
 
 ### 6.2.8 退款事实表（累积型快照事实表）
 
@@ -4581,11 +4487,11 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 2）分区规划
 
- ![image-20211122170343128](离线数仓.assets/image-20211122170343128.png)
+![image-20211122170343128](离线数仓.assets/image-20211122170343128.png)
 
 3）数据装载
 
- ![image-20211122170351614](离线数仓.assets/image-20211122170351614.png)
+![image-20211122170351614](离线数仓.assets/image-20211122170351614.png)
 
 （1）首日装载
 
@@ -4638,11 +4544,11 @@ DROP TABLE IF EXISTS dwd_order_info;
 
 2）分区规划
 
- ![image-20211122170452714](离线数仓.assets/image-20211122170452714.png)
+![image-20211122170452714](离线数仓.assets/image-20211122170452714.png)
 
 3）数据装载
 
- ![image-20211122170523569](离线数仓.assets/image-20211122170523569.png)
+![image-20211122170523569](离线数仓.assets/image-20211122170523569.png)
 
 （1）首日装载
 
@@ -4656,13 +4562,11 @@ DROP TABLE IF EXISTS dwd_order_info;
 略
 ```
 
-
-
-### 6.2.10 DWD层业务数据首日装载脚本
+### 6.2.10 DWD 层业务数据首日装载脚本
 
 **1** **）编写脚本**
 
-（1）在/home/atguigu/bin目录下创建脚本ods_to_dwd_db_init.sh
+（1）在/home/atguigu/bin 目录下创建脚本 ods_to_dwd_db_init.sh
 
 ```
 [atguigu@hadoop102 bin]$ vim ods_to_dwd_db_init.sh
@@ -4690,11 +4594,11 @@ DROP TABLE IF EXISTS dwd_order_info;
 
 （2）查看数据是否导入成功
 
-### 6.2.11 DWD层业务数据每日装载脚本
+### 6.2.11 DWD 层业务数据每日装载脚本
 
 **1** **）编写脚本**
 
-（1）在/home/atguigu/bin目录下创建脚本ods_to_dwd_db.sh
+（1）在/home/atguigu/bin 目录下创建脚本 ods_to_dwd_db.sh
 
 ```
 [atguigu@hadoop102 bin]$ vim ods_to_dwd_db.sh
@@ -4722,19 +4626,19 @@ DROP TABLE IF EXISTS dwd_order_info;
 
 （2）查看数据是否导入成功
 
-# 第7章 数仓搭建-DWS层
+# 第 7 章 数仓搭建-DWS 层
 
 ## 7.1 系统函数
 
-### 7.1.1 nvl函数
+### 7.1.1 nvl 函数
 
 1）基本语法
 
-NVL（表达式1，表达式2）
+NVL（表达式 1，表达式 2）
 
-如果表达式1为空值，NVL返回值为表达式2的值，否则返回表达式1的值。
+如果表达式 1 为空值，NVL 返回值为表达式 2 的值，否则返回表达式 1 的值。
 
-该函数的目的是把一个空值（null）转换成一个实际的值。其表达式的值可以是数字型、字符型和日期型。但是表达式1和表达式2的数据类型必须为同一个类型。
+该函数的目的是把一个空值（null）转换成一个实际的值。其表达式的值可以是数字型、字符型和日期型。但是表达式 1 和表达式 2 的数据类型必须为同一个类型。
 
 2）案例实操
 
@@ -4746,11 +4650,9 @@ hive (gmall)> select nvl(null,"hello");
 hello
 ```
 
-
-
 ### 7.1.2 日期处理函数
 
-1）date_format函数（根据格式整理日期）
+1）date_format 函数（根据格式整理日期）
 
 ```
 hive (gmall)> select date_format('2020-06-14','yyyy-MM');
@@ -4758,7 +4660,7 @@ hive (gmall)> select date_format('2020-06-14','yyyy-MM');
 2020-06
 ```
 
-2）date_add函数（加减日期）
+2）date_add 函数（加减日期）
 
 ```
 hive (gmall)> select date_add('2020-06-14',-1);
@@ -4770,9 +4672,9 @@ hive (gmall)> select date_add('2020-06-14',1);
 2020-06-15
 ```
 
-3）next_day函数
+3）next_day 函数
 
-​    （1）取当前天的下一个周一
+​ （1）取当前天的下一个周一
 
 ```
 hive (gmall)> select next_day('2020-06-14','MO');
@@ -4790,7 +4692,7 @@ hive (gmall)> select date_add(next_day('2020-06-14','MO'),-7);
 2020-06-8
 ```
 
-4）last_day函数（求当月最后一天日期）
+4）last_day 函数（求当月最后一天日期）
 
 ```
 hive (gmall)> select last_day('2020-06-14');
@@ -4798,37 +4700,33 @@ hive (gmall)> select last_day('2020-06-14');
 2020-06-30
 ```
 
-
-
 ### 7.1.3 复杂数据类型定义
 
-1）map结构数据定义
+1）map 结构数据定义
 
 ```
 map<string,string>
 ```
 
-2）array结构数据定义
+2）array 结构数据定义
 
 ```
 array<string>
 ```
 
-3）struct结构数据定义
+3）struct 结构数据定义
 
 ```scala
 struct<id:int,name:string,age:int>
 ```
 
-4）struct和array嵌套定义
+4）struct 和 array 嵌套定义
 
 ```scala
 array<struct<id:int,name:string,age:int>>
 ```
 
-
-
-## 7.2 DWS层
+## 7.2 DWS 层
 
 ![img](离线数仓.assets/clip_image002-1637631431715.gif)
 
@@ -5005,7 +4903,7 @@ CREATE EXTERNAL TABLE dws_coupon_info_daycount(
 
   `get_count` BIGINT COMMENT '被领取次数',
 
-  `order_count` BIGINT COMMENT '被使用(下单)次数', 
+  `order_count` BIGINT COMMENT '被使用(下单)次数',
 
   `order_reduce_amount` DECIMAL(16,2) COMMENT '用券下单优惠金额',
 
@@ -5039,8 +4937,6 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 （2）每日装载
 
 3）查询加载结果
-
- 
 
 ### 7.2.5 活动主题
 
@@ -5118,11 +5014,11 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 3）查询加载结果
 
-### 7.2.7 DWS层首日数据装载脚本
+### 7.2.7 DWS 层首日数据装载脚本
 
 **1** **）编写脚本**
 
-（1）在/home/atguigu/bin目录下创建脚本dwd_to_dws_init.sh
+（1）在/home/atguigu/bin 目录下创建脚本 dwd_to_dws_init.sh
 
 （2）增加执行权限
 
@@ -5136,11 +5032,11 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 （2）查看数据是否导入成功
 
-### 7.2.8 DWS层每日数据装载脚本
+### 7.2.8 DWS 层每日数据装载脚本
 
 1）编写脚本
 
-（1）在/home/atguigu/bin目录下创建脚本dwd_to_dws.sh
+（1）在/home/atguigu/bin 目录下创建脚本 dwd_to_dws.sh
 
 （2）增加执行权限
 
@@ -5154,7 +5050,7 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 （2）查看数据是否导入成功
 
-# 第8章 数仓搭建-DWT层
+# 第 8 章 数仓搭建-DWT 层
 
 ## 8.1 访客主题
 
@@ -5967,11 +5863,11 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 3）查询加载结果
 
-## 8.7 DWT层首日数据导入脚本
+## 8.7 DWT 层首日数据导入脚本
 
 1）编写脚本
 
-（1）在/home/atguigu/bin目录下创建脚本dws_to_dwt_init.sh
+（1）在/home/atguigu/bin 目录下创建脚本 dws_to_dwt_init.sh
 
 ```
 [atguigu@hadoop102 bin]$ vim dws_to_dwt_init.sh
@@ -5993,11 +5889,11 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 （2）查看数据是否导入成功
 
-## 8.8 DWT层每日数据导入脚本
+## 8.8 DWT 层每日数据导入脚本
 
 **1** **）编写脚本**
 
-（1）在/home/atguigu/bin目录下创建脚本dws_to_dwt.sh
+（1）在/home/atguigu/bin 目录下创建脚本 dws_to_dwt.sh
 
 ```
 [atguigu@hadoop102 bin]$ vim dws_to_dwt.sh
@@ -6019,11 +5915,11 @@ TBLPROPERTIES ("parquet.compression"="lzo");
 
 （2）查看导入数据
 
-# 第9章 数仓搭建-ADS层
+# 第 9 章 数仓搭建-ADS 层
 
 ## 9.1 建表说明
 
-ADS层不涉及建模，建表根据具体需求而定。
+ADS 层不涉及建模，建表根据具体需求而定。
 
 ## 9.2 访客主题
 
@@ -6092,11 +5988,11 @@ LOCATION '/warehouse/gmall/ads/ads_visit_stats/';
 
 ### 9.2.2 路径分析
 
-用户路径分析，顾名思义，就是指用户在APP或网站中的访问路径。为了衡量网站优化的效果或营销推广的效果，以及了解用户行为偏好，时常要对访问路径进行分析。
+用户路径分析，顾名思义，就是指用户在 APP 或网站中的访问路径。为了衡量网站优化的效果或营销推广的效果，以及了解用户行为偏好，时常要对访问路径进行分析。
 
 用户访问路径的可视化通常使用桑基图。如下图所示，该图可真实还原用户的访问路径，包括页面跳转和页面访问次序。
 
-桑基图需要我们提供每种页面跳转的次数，每个跳转由source/target表示，source指跳转起始页面，target表示跳转终到页面。
+桑基图需要我们提供每种页面跳转的次数，每个跳转由 source/target 表示，source 指跳转起始页面，target 表示跳转终到页面。
 
 ![img](离线数仓.assets/clip_image002.jpg)
 
@@ -6128,13 +6024,11 @@ LOCATION '/warehouse/gmall/ads/ads_page_path/';
 
 **2.** **数据装载**
 
-**思路分析：该需求要统计的就是每种跳转的次数，故理论上对source/target** **进行分组count()** **即可。统计时需注意以下两点：**
+**思路分析：该需求要统计的就是每种跳转的次数，故理论上对 source/target** **进行分组 count()** **即可。统计时需注意以下两点：**
 
-**第一点：桑基图的source** **不允许为空，但target** **可为空。**
+**第一点：桑基图的 source** **不允许为空，但 target** **可为空。**
 
 **第二点：桑基图所展示的流程不允许存在环。**
-
-
 
 ## 9.3 用户主题
 
@@ -6180,16 +6074,14 @@ LOCATION '/warehouse/gmall/ads/ads_user_total/';
 
 **2.** **数据装载**
 
-
-
 ### 9.3.2 用户变动统计
 
 该需求包括两个指标，分别为流失用户数和回流用户数，以下为对两个指标的解释说明。
 
-| 指标       | 说明                                                         | 对应字段             |
-| ---------- | ------------------------------------------------------------ | -------------------- |
-| 流失用户数 | 之前活跃过的用户，最近一段时间未活跃，就称为流失用户。此处要求统计7日前（只包含7日前当天）活跃，但最近7日未活跃的用户总数。 | user_churn_count     |
-| 回流用户数 | 之前的活跃用户，一段时间未活跃（流失），今日又活跃了，就称为回流用户。此处要求统计回流用户总数。 | new_order_user_count |
+| 指标       | 说明                                                                                                                              | 对应字段             |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| 流失用户数 | 之前活跃过的用户，最近一段时间未活跃，就称为流失用户。此处要求统计 7 日前（只包含 7 日前当天）活跃，但最近 7 日未活跃的用户总数。 | user_churn_count     |
+| 回流用户数 | 之前的活跃用户，一段时间未活跃（流失），今日又活跃了，就称为回流用户。此处要求统计回流用户总数。                                  | new_order_user_count |
 
 **1.** **建表语句**
 
@@ -6215,11 +6107,9 @@ LOCATION '/warehouse/gmall/ads/ads_user_change/';
 
 **思路分析：**
 
-**流失用户：末次活跃时间为7** **日前的用户即为流失用户。**
+**流失用户：末次活跃时间为 7** **日前的用户即为流失用户。**
 
-**回流用户：末次活跃时间为今日，上次活跃时间在8****日前的用户即为回流用户。**
-
-
+**回流用户：末次活跃时间为今日，上次活跃时间在 8\*\***日前的用户即为回流用户。\*\*
 
 ### 9.3.3 用户行为漏斗分析
 
@@ -6267,9 +6157,9 @@ LOCATION '/warehouse/gmall/ads/ads_user_action/';
 
 留存分析是衡量产品对用户价值高低的重要指标。
 
-此处要求统计新增留存率，新增留存率具体是指留存用户数与新增用户数的比值，例如2020-06-14新增100个用户，1日之后（2020-06-15）这100人中有80个人活跃了，那2020-06-14的1日留存数则为80，2020-06-14的1日留存率则为80%。
+此处要求统计新增留存率，新增留存率具体是指留存用户数与新增用户数的比值，例如 2020-06-14 新增 100 个用户，1 日之后（2020-06-15）这 100 人中有 80 个人活跃了，那 2020-06-14 的 1 日留存数则为 80，2020-06-14 的 1 日留存率则为 80%。
 
-要求统计每天的1至7日留存率，如下图所示。
+要求统计每天的 1 至 7 日留存率，如下图所示。
 
 ![img](离线数仓.assets/clip_image006.jpg)
 
@@ -6301,13 +6191,11 @@ LOCATION '/warehouse/gmall/ads/ads_user_retention/';
 
 **2.** **数据装载**
 
-
-
 ## 9.4 商品主题
 
 ### 9.4.1 商品统计
 
-该指标为商品综合统计，包含每个spu被下单总次数和被下单总金额。
+该指标为商品综合统计，包含每个 spu 被下单总次数和被下单总金额。
 
 **1.** **建表语句**
 
@@ -6353,13 +6241,11 @@ LOCATION '/warehouse/gmall/ads/ads_order_spu_stats/';
 
 **2.** **数据装载**
 
-
-
 ### 9.4.2 品牌复购率
 
-品牌复购率是指一段时间内重复购买某品牌的人数与购买过该品牌的人数的比值。重复购买即购买次数大于等于2，购买过即购买次数大于1。
+品牌复购率是指一段时间内重复购买某品牌的人数与购买过该品牌的人数的比值。重复购买即购买次数大于等于 2，购买过即购买次数大于 1。
 
-此处要求统计最近1,7,30天的各品牌复购率。
+此处要求统计最近 1,7,30 天的各品牌复购率。
 
 **1.** **建表语句**
 
@@ -6391,9 +6277,7 @@ LOCATION '/warehouse/gmall/ads/ads_repeat_purchase/';
 
 **第一步：统计每个用户购买每个品牌的次数。**
 
-**第二步：分别统计购买次数大于1** **的人数和大于2** **的人数。**
-
- 
+**第二步：分别统计购买次数大于 1** **的人数和大于 2** **的人数。**
 
 ## 9.5 订单主题
 
@@ -6427,13 +6311,11 @@ LOCATION '/warehouse/gmall/ads/ads_order_total/';
 
 **2.** **数据装载**
 
-
-
 ### 9.5.2 各地区订单统计
 
 该需求包含各省份订单总数和订单总金额。
 
-**1.** **建表语句** 
+**1.** **建表语句**
 
 ```sql
 DROP TABLE IF EXISTS ads_order_by_province;
@@ -6467,13 +6349,11 @@ LOCATION '/warehouse/gmall/ads/ads_order_by_province/';
 
 **2.** **数据装载**
 
-
-
 ## 9.6 优惠券主题
 
 ### 9.6.1 优惠券统计
 
-该需求要求统计最近30日发布的所有优惠券的领用情况和补贴率，补贴率是指，优惠金额与使用优惠券的订单的原价金额的比值。
+该需求要求统计最近 30 日发布的所有优惠券的领用情况和补贴率，补贴率是指，优惠金额与使用优惠券的订单的原价金额的比值。
 
 **1.** **建表语句**
 
@@ -6515,13 +6395,11 @@ LOCATION '/warehouse/gmall/ads/ads_coupon_stats/';
 
 **2.** **数据装载**
 
-
-
 **9.7** **活动主题**
 
 **9.7.1** **活动统计**
 
-该需求要求统计最近30日发布的所有活动的参与情况和补贴率，补贴率是指，优惠金额与参与活动的订单原价金额的比值。
+该需求要求统计最近 30 日发布的所有活动的参与情况和补贴率，补贴率是指，优惠金额与参与活动的订单原价金额的比值。
 
 **1.** **建表语句**
 
@@ -6557,9 +6435,7 @@ LOCATION '/warehouse/gmall/ads/ads_activity_stats/';
 
 **2.** **数据装载**
 
-
-
-## 9.8 ADS层业务数据导入脚本
+## 9.8 ADS 层业务数据导入脚本
 
 **1** **）编写脚本**
 
@@ -6574,22 +6450,22 @@ LOCATION '/warehouse/gmall/ads/ads_activity_stats/';
 （1）执行脚本
 
 ```
-[atguigu@hadoop102 bin]$ dwt_to_ads.sh all 2020-06-14               
+[atguigu@hadoop102 bin]$ dwt_to_ads.sh all 2020-06-14
 ```
 
 （2）查看数据是否导入
 
-# 第10章 全流程调度
+# 第 10 章 全流程调度
 
-## 10.1 Azkaban部署
+## 10.1 Azkaban 部署
 
-详见：尚硅谷大数据技术之Azkaban
+详见：尚硅谷大数据技术之 Azkaban
 
 ![img](离线数仓.assets/clip_image002-1637631115163.gif)
 
-## 10.2 创建MySQL数据库和表
+## 10.2 创建 MySQL 数据库和表
 
-1）创建gmall_report数据库
+1）创建 gmall_report 数据库
 
 ![img](离线数仓.assets/clip_image004.jpg)
 
@@ -6644,7 +6520,7 @@ CREATE TABLE `ads_visit_stats` (
 ```sql
 DROP TABLE IF EXISTS ads_page_path;
 
-CREATE TABLE `ads_page_path` (   
+CREATE TABLE `ads_page_path` (
 
  `dt` DATE NOT NULL COMMENT '统计日期',
 
@@ -6656,7 +6532,7 @@ CREATE TABLE `ads_page_path` (
 
  `path_count` BIGINT(255) DEFAULT NULL COMMENT '跳转次数',
 
- UNIQUE KEY (`dt`,`recent_days`,`source`,`target`) USING BTREE   
+ UNIQUE KEY (`dt`,`recent_days`,`source`,`target`) USING BTREE
 
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 ```
@@ -6666,7 +6542,7 @@ CREATE TABLE `ads_page_path` (
 ```sql
 DROP TABLE IF EXISTS ads_user_total;
 
-CREATE TABLE `ads_user_total` (      
+CREATE TABLE `ads_user_total` (
 
  `dt` DATE NOT NULL COMMENT '统计日期',
 
@@ -6682,7 +6558,7 @@ CREATE TABLE `ads_user_total` (
 
  `no_order_user_count` BIGINT(20) DEFAULT NULL COMMENT '未下单用户数(具体指活跃用户中未下单用户)',
 
- PRIMARY KEY (`dt`,`recent_days`)      
+ PRIMARY KEY (`dt`,`recent_days`)
 
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 ```
@@ -6736,7 +6612,7 @@ CREATE TABLE `ads_user_action` (
 ```sql
 DROP TABLE IF EXISTS ads_user_retention;
 
-CREATE TABLE `ads_user_retention` (   
+CREATE TABLE `ads_user_retention` (
 
  `dt` DATE DEFAULT NULL COMMENT '统计日期',
 
@@ -6750,7 +6626,7 @@ CREATE TABLE `ads_user_retention` (
 
  `retention_rate` DECIMAL(16,2) DEFAULT NULL COMMENT '留存率',
 
- PRIMARY KEY (`create_date`,`retention_day`) USING BTREE    
+ PRIMARY KEY (`create_date`,`retention_day`) USING BTREE
 
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 ```
@@ -6760,19 +6636,19 @@ CREATE TABLE `ads_user_retention` (
 ```sql
 DROP TABLE IF EXISTS ads_order_total;
 
- CREATE TABLE `ads_order_total` (  
+ CREATE TABLE `ads_order_total` (
 
- `dt` DATE NOT NULL COMMENT '统计日期', 
+ `dt` DATE NOT NULL COMMENT '统计日期',
 
  `recent_days` BIGINT(20) NOT NULL COMMENT '最近天数,1:最近1天,7:最近7天,30:最近30天',
 
- `order_count` BIGINT(255) DEFAULT NULL COMMENT '订单数', 
+ `order_count` BIGINT(255) DEFAULT NULL COMMENT '订单数',
 
- `order_amount` DECIMAL(16,2) DEFAULT NULL COMMENT '订单金额', 
+ `order_amount` DECIMAL(16,2) DEFAULT NULL COMMENT '订单金额',
 
  `order_user_count` BIGINT(255) DEFAULT NULL COMMENT '下单人数',
 
- PRIMARY KEY (`dt`,`recent_days`) 
+ PRIMARY KEY (`dt`,`recent_days`)
 
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 ```
@@ -6802,7 +6678,7 @@ CREATE TABLE `ads_order_by_province` (
 
  `order_amount` DECIMAL(16,2) DEFAULT NULL COMMENT '订单金额',
 
- PRIMARY KEY (`dt`, `recent_days` ,`province_id`) USING BTREE    
+ PRIMARY KEY (`dt`, `recent_days` ,`province_id`) USING BTREE
 
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 ```
@@ -6812,7 +6688,7 @@ CREATE TABLE `ads_order_by_province` (
 ```sql
 DROP TABLE IF EXISTS ads_repeat_purchase;
 
-CREATE TABLE `ads_repeat_purchase` (     
+CREATE TABLE `ads_repeat_purchase` (
 
  `dt` DATE NOT NULL COMMENT '统计日期',
 
@@ -6824,7 +6700,7 @@ CREATE TABLE `ads_repeat_purchase` (
 
  `order_repeat_rate` DECIMAL(16,2) DEFAULT NULL COMMENT '复购率',
 
- PRIMARY KEY (`dt` ,`recent_days`,`tm_id`)     
+ PRIMARY KEY (`dt` ,`recent_days`,`tm_id`)
 
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 ```
@@ -6862,9 +6738,9 @@ CREATE TABLE `ads_order_spu_stats` (
 
  `order_count` BIGINT(20) DEFAULT NULL COMMENT '订单数',
 
- `order_amount` DECIMAL(16,2) DEFAULT NULL COMMENT '订单金额', 
+ `order_amount` DECIMAL(16,2) DEFAULT NULL COMMENT '订单金额',
 
- PRIMARY KEY (`dt`,`recent_days`,`spu_id`) 
+ PRIMARY KEY (`dt`,`recent_days`,`spu_id`)
 
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 ```
@@ -6912,7 +6788,7 @@ CREATE TABLE `ads_coupon_stats` (
 
  `coupon_name` VARCHAR(255) DEFAULT NULL COMMENT '优惠券名称',
 
- `start_date` DATE DEFAULT NULL COMMENT '开始日期', 
+ `start_date` DATE DEFAULT NULL COMMENT '开始日期',
 
  `rule_name` VARCHAR(200) DEFAULT NULL COMMENT '优惠规则',
 
@@ -6935,29 +6811,27 @@ CREATE TABLE `ads_coupon_stats` (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 ```
 
+## 10.3 Sqoop 导出脚本
 
+1）编写 Sqoop 导出脚本
 
-## 10.3 Sqoop导出脚本
-
-1）编写Sqoop导出脚本
-
-在/home/atguigu/bin目录下创建脚本hdfs_to_mysql.sh
+在/home/atguigu/bin 目录下创建脚本 hdfs_to_mysql.sh
 
 ```
 [atguigu@hadoop102 bin]$ vim hdfs_to_mysql.sh
 ```
 
- 关于导出update还是insert的问题
+关于导出 update 还是 insert 的问题
 
 Ø --update-mode：
 
-updateonly  只更新，无法插入新数据
+updateonly 只更新，无法插入新数据
 
-​    allowinsert  允许新增 
+​ allowinsert 允许新增
 
 Ø --update-key：允许更新的情况下，指定哪些字段匹配视为同一条数据，进行更新而不增加。多个字段用逗号分隔。
 
-Ø --input-null-string和--input-null-non-string：
+Ø --input-null-string 和--input-null-non-string：
 
 分别表示，将字符串列和非字符串列的空串和“null”转义。
 
@@ -6965,9 +6839,9 @@ updateonly  只更新，无法插入新数据
 
 Sqoop will by default import NULL values as string null. Hive is however using string \N to denote NULL values and therefore predicates dealing with NULL(like IS NULL) will not work correctly. You should append parameters --null-string and --null-non-string in case of import job or --input-null-string and --input-null-non-string in case of an export job if you wish to properly preserve NULL values. Because sqoop is using those parameters in generated code, you need to properly escape value \N to [\\N](file://N):
 
-Hive中的Null在底层是以“\N”来存储，而MySQL中的Null在底层就是Null，为了保证数据两端的一致性。在导出数据时采用--input-null-string和--input-null-non-string两个参数。导入数据时采用--null-string和--null-non-string。
+Hive 中的 Null 在底层是以“\N”来存储，而 MySQL 中的 Null 在底层就是 Null，为了保证数据两端的一致性。在导出数据时采用--input-null-string 和--input-null-non-string 两个参数。导入数据时采用--null-string 和--null-non-string。
 
-2）执行Sqoop导出脚本
+2）执行 Sqoop 导出脚本
 
 ```
 [atguigu@hadoop102 bin]$ chmod 777 hdfs_to_mysql.sh
@@ -6975,15 +6849,13 @@ Hive中的Null在底层是以“\N”来存储，而MySQL中的Null在底层就�
 [atguigu@hadoop102 bin]$ hdfs_to_mysql.sh all
 ```
 
-
-
 ## 10.4 全调度流程
 
 ### 10.4.1 数据准备
 
 1）用户行为数据准备
 
-（1）修改/opt/module/applog下的application.properties
+（1）修改/opt/module/applog 下的 application.properties
 
 \#业务日期
 
@@ -7001,13 +6873,13 @@ mock.date=2020-06-15
 [atguigu@hadoop102 bin]$ lg.sh
 ```
 
-注意：生成数据之后，记得查看HDFS数据是否存在！
+注意：生成数据之后，记得查看 HDFS 数据是否存在！
 
-（3）观察HDFS的/origin_data/gmall/log/topic_log/2020-06-15路径是否有数据
+（3）观察 HDFS 的/origin_data/gmall/log/topic_log/2020-06-15 路径是否有数据
 
 2）业务数据准备
 
-（1）修改/opt/module/db_log下的application.properties
+（1）修改/opt/module/db_log 下的 application.properties
 
 ```
 [atguigu@hadoop102 db_log]$ vim application.properties
@@ -7023,17 +6895,17 @@ mock.date=2020-06-15
 [atguigu@hadoop102 db_log]$ java -jar gmall2020-mock-db-2020-04-01.jar
 ```
 
-（3）观察SQLyog中order_infor表中operate_time中有2020-06-15日期的数据
+（3）观察 SQLyog 中 order_infor 表中 operate_time 中有 2020-06-15 日期的数据
 
 ![img](离线数仓.assets/clip_image008.jpg)
 
-### 10.4.2 编写Azkaban工作流程配置文件
+### 10.4.2 编写 Azkaban 工作流程配置文件
 
-1）编写azkaban.project文件，内容如下
+1）编写 azkaban.project 文件，内容如下
 
 azkaban-flow-version: 2.0
 
-2）编写gmall.flow文件，内容如下
+2）编写 gmall.flow 文件，内容如下
 
 ```
 nodes:
@@ -7046,7 +6918,7 @@ nodes:
 
    command: /home/atguigu/bin/mysql_to_hdfs.sh all ${dt}
 
-  
+
 
  \- name: hdfs_to_ods_log
 
@@ -7056,63 +6928,63 @@ nodes:
 
    command: /home/atguigu/bin/hdfs_to_ods_log.sh ${dt}
 
-   
+
 
  \- name: hdfs_to_ods_db
 
   type: command
 
-  dependsOn: 
+  dependsOn:
 
    \- mysql_to_hdfs
 
-  config: 
+  config:
 
    command: /home/atguigu/bin/hdfs_to_ods_db.sh all ${dt}
 
- 
+
 
  \- name: ods_to_dim_db
 
   type: command
 
-  dependsOn: 
+  dependsOn:
 
    \- hdfs_to_ods_db
 
-  config: 
+  config:
 
    command: /home/atguigu/bin/ods_to_dim_db.sh all ${dt}
 
- 
+
 
  \- name: ods_to_dwd_log
 
   type: command
 
-  dependsOn: 
+  dependsOn:
 
    \- hdfs_to_ods_log
 
-  config: 
+  config:
 
    command: /home/atguigu/bin/ods_to_dwd_log.sh all ${dt}
 
-  
+
 
  \- name: ods_to_dwd_db
 
   type: command
 
-  dependsOn: 
+  dependsOn:
 
    \- hdfs_to_ods_db
 
-  config: 
+  config:
 
    command: /home/atguigu/bin/ods_to_dwd_db.sh all ${dt}
 
-  
+
 
  \- name: dwd_to_dws
 
@@ -7130,7 +7002,7 @@ nodes:
 
    command: /home/atguigu/bin/dwd_to_dws.sh all ${dt}
 
-  
+
 
  \- name: dws_to_dwt
 
@@ -7144,13 +7016,13 @@ nodes:
 
    command: /home/atguigu/bin/dws_to_dwt.sh all ${dt}
 
-  
+
 
  \- name: dwt_to_ads
 
   type: command
 
-  dependsOn: 
+  dependsOn:
 
    \- dws_to_dwt
 
@@ -7158,7 +7030,7 @@ nodes:
 
    command: /home/atguigu/bin/dwt_to_ads.sh all ${dt}
 
-   
+
 
  \- name: hdfs_to_mysql
 
@@ -7173,11 +7045,11 @@ nodes:
    command: /home/atguigu/bin/hdfs_to_mysql.sh all
 ```
 
-3）将azkaban.project、gmall.flow文件压缩到一个zip文件，文件名称必须是英文。
+3）将 azkaban.project、gmall.flow 文件压缩到一个 zip 文件，文件名称必须是英文。
 
-  ![img](离线数仓.assets/clip_image010.gif)
+![img](离线数仓.assets/clip_image010.gif)
 
-4）在WebServer新建项目：http://hadoop102:8081/index
+4）在 WebServer 新建项目：http://hadoop102:8081/index
 
 ![img](离线数仓.assets/clip_image012.jpg)
 
@@ -7185,7 +7057,7 @@ nodes:
 
 ![img](离线数仓.assets/clip_image014.jpg)
 
-6）gmall.zip文件上传
+6）gmall.zip 文件上传
 
 ![img](离线数仓.assets/clip_image016.jpg)
 
@@ -7201,7 +7073,7 @@ nodes:
 
 ![img](离线数仓.assets/clip_image022.jpg)
 
-10）配置输入dt时间参数
+10）配置输入 dt 时间参数
 
 ![img](离线数仓.assets/clip_image024.jpg)
 
@@ -7211,19 +7083,19 @@ nodes:
 
 ![img](离线数仓.assets/clip_image028.jpg)
 
-11）在SQLyog上查看结果
+11）在 SQLyog 上查看结果
 
 ![img](离线数仓.assets/clip_image030.jpg)
 
-### 10.4.3 Azkaban多Executor模式下注意事项
+### 10.4.3 Azkaban 多 Executor 模式下注意事项
 
-Azkaban多Executor模式是指，在集群中多个节点部署Executor。在这种模式下， Azkaban web Server会根据策略，选取其中一个Executor去执行任务。
+Azkaban 多 Executor 模式是指，在集群中多个节点部署 Executor。在这种模式下， Azkaban web Server 会根据策略，选取其中一个 Executor 去执行任务。
 
-由于我们需要交给Azkaban调度的脚本，以及脚本需要的Hive，Sqoop等应用只在hadoop102部署了，为保证任务顺利执行，我们须在以下两种方案任选其一，推荐使用方案二。
+由于我们需要交给 Azkaban 调度的脚本，以及脚本需要的 Hive，Sqoop 等应用只在 hadoop102 部署了，为保证任务顺利执行，我们须在以下两种方案任选其一，推荐使用方案二。
 
-方案一：指定特定的Executor（hadoop102）去执行任务。
+方案一：指定特定的 Executor（hadoop102）去执行任务。
 
-1）在MySQL中azkaban数据库executors表中，查询hadoop102上的Executor的id。
+1）在 MySQL 中 azkaban 数据库 executors 表中，查询 hadoop102 上的 Executor 的 id。
 
 ```sh
 mysql> use azkaban;
@@ -7232,7 +7104,7 @@ Reading table information for completion of table and column names
 
 You can turn off this feature to get a quicker startup with -A
 
- 
+
 
 Database changed
 
@@ -7255,11 +7127,11 @@ mysql> select * from executors;
 3 rows in set (0.00 sec)
 ```
 
-2）在执行工作流程时加入useExecutor属性，如下
+2）在执行工作流程时加入 useExecutor 属性，如下
 
 ![img](离线数仓.assets/clip_image032.jpg)
 
-方案二：在Executor所在所有节点部署任务所需脚本和应用。
+方案二：在 Executor 所在所有节点部署任务所需脚本和应用。
 
 1）分发脚本、sqoop、spark、my_env.sh
 
@@ -7275,4 +7147,4 @@ mysql> select * from executors;
 [atguigu@hadoop102 ~]$ sudo /home/atguigu/bin/xsync /etc/profile.d/my_env.sh
 ```
 
-2）分发之后，在hadoop103，hadoop104重新加载环境变量配置文件，并重启Azkaban
+2）分发之后，在 hadoop103，hadoop104 重新加载环境变量配置文件，并重启 Azkaban

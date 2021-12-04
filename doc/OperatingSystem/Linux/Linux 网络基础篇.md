@@ -1,3 +1,5 @@
+#
+
 # 第一章 计算机基础
 
 ## 第一节 进制转换
@@ -12,7 +14,7 @@
   - **十进制数除二，把余数放到右边，直到除到得数为 0 或者 1，用最后的得数开头把最右边的余数放在一起，就是二进制数
     比如：**
     **123 的二进制数是 1111011**
-    ￼![进制转换](https://img-blog.csdnimg.cn/20200530222404972.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MTUwMTIy,size_16,color_FFFFFF,t_70#pic_center)
+    ￼
   - **二进制转化十进制**
     - **求权，然后把它加起来，从后面开始加**
       **比如：11010011

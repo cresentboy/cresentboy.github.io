@@ -1,34 +1,26 @@
+#
+
 # 第一章 Flink 简介
 
- 
+### 1.1 初识 Flink
 
-### 1.1    初识Flink
-
-Flink 起源于 Stratosphere 项目，Stratosphere 是在 2010~2014 年由 3 所地处柏林的大学和欧洲的一些其他的大学共同进行的研究项目， 2014 年 4 月 Stratosphere 的代码被复制并捐赠给了 Apache 软件基金会， 参加这个孵化项目的初始成员是Stratosphere 系统的核心开发人员， 2014 年 12 月， Flink 一跃成为 Apache 软件基金会的顶级项目。 
-
+Flink 起源于 Stratosphere 项目，Stratosphere 是在 2010~2014 年由 3 所地处柏林的大学和欧洲的一些其他的大学共同进行的研究项目， 2014 年 4 月 Stratosphere 的代码被复制并捐赠给了 Apache 软件基金会， 参加这个孵化项目的初始成员是 Stratosphere 系统的核心开发人员， 2014 年 12 月， Flink 一跃成为 Apache 软件基金会的顶级项目。
 
 在德语中，Flink 一词表示快速和灵巧，项目采用一只松鼠的彩色图案作为 logo，这不仅是因为松鼠具有快速和灵巧的特点，还因为柏林的松鼠有一种迷人的红棕色， 而 Flink 的松鼠 logo 拥有可爱的尾巴， 尾巴的颜色与 Apache 软件基金会的 logo 颜色相呼应， 也就是说， 这是一只 Apache 风格的松鼠。
 
 ![image-20211117183535821](flink简介.assets/image-20211117183535821.png)
 
- 
-
 Flink 项目的理念是：“ Apache Flink 是为分布式、高性能、随时可用以及准确的流处理应用程序打造的开源流处理框架”。
 
 Apache Flink 是一个框架和分布式处理引擎， 用于对无界和有界数据流进行有状态计算。Flink 被设计在所有常见的集群环境中运行，以内存执行速度和任意规模来执行计算。
 
- 
-
 ![img](flink简介.assets/clip_image006.jpg)
 
- 
+### 1.2 Flink 的重要特点
 
-### 1.2    Flink 的重要特点
-
-**1.2.1**     **事件驱动型** **(Event-driven)**
+**1.2.1** **事件驱动型** **(Event-driven)**
 
 事件驱动型应用是一类具有状态的应用， 它从一个或多个事件流提取数据， 并根据到来的事件触发计算、状态更新或其他外部动作。比较典型的就是以 kafka 为代表的消息队列几乎都是事件驱动型应用。
-
 
 与之不同的就是 SparkStreaming 微批次， 如图：
 
@@ -36,9 +28,9 @@ Apache Flink 是一个框架和分布式处理引擎， 用于对无界和有界
 
 事件驱动型：
 
- ![image-20211117183626005](flink简介.assets/image-20211117183626005.png)
+![image-20211117183626005](flink简介.assets/image-20211117183626005.png)
 
-**1.2.2**   **流与批的世界观**
+**1.2.2** **流与批的世界观**
 
 **批处理**的特点是有界、持久、大量， 非常适合需要访问全套记录才能完成的计算工作， 一般用于离线统计。
 
@@ -54,11 +46,9 @@ Apache Flink 是一个框架和分布式处理引擎， 用于对无界和有界
 
 **这种以流为世界观的架构， 获得的最大好处就是具有极低的延迟。**
 
- 
+## 1.2.3 分层 api
 
-## 1.2.3   分层api
-
- ![image-20211117183700171](flink简介.assets/image-20211117183700171.png)
+![image-20211117183700171](flink简介.assets/image-20211117183700171.png)
 
 最底层级的抽象仅仅提供了有状态流， 它将通过过程函数（ Process Function） 被嵌入到 DataStream API 中。底层过程函数（ Process Function） 与 DataStream API 相集成， 使其可以对某些特定的操作进行底层的抽象， 它允许用户可以自由地处理来自一个或多个数据流的事件， 并使用一致的容错的状态。除此之外， 用户可以注册事件时间并处理时间回调， 从而使程序可以处理复杂的计算。
 
@@ -68,9 +58,9 @@ Table API 是以表为中心的声明式编程，其中表可能会动态变化�
 
 尽管 Table API 可以通过多种类型的用户自定义函数（ UDF）进行扩展，其仍不如核心 API 更具表达能力， 但是使用起来却更加简洁（ 代码量更少）。除此之外， Table API 程序在执行之前会经过内置优化器进行优化。
 
-你可以在表与 DataStream/DataSet 之间无缝切换，以允许程序将 Table API 与DataStream 以及 DataSet 混合使用。
+你可以在表与 DataStream/DataSet 之间无缝切换，以允许程序将 Table API 与 DataStream 以及 DataSet 混合使用。
 
-Flink 提供的最高层级的抽象是 SQL 。这一层抽象在语法与表达能力上与Table API 类似，但是是以 SQL 查询表达式的形式表现程序。SQL 抽象与 Table API 交互密切， 同时 SQL 查询可以直接在 Table API 定义的表上执行。
+Flink 提供的最高层级的抽象是 SQL 。这一层抽象在语法与表达能力上与 Table API 类似，但是是以 SQL 查询表达式的形式表现程序。SQL 抽象与 Table API 交互密切， 同时 SQL 查询可以直接在 Table API 定义的表上执行。
 
 目前 Flink 作为批处理还不是主流，不如 Spark 成熟，所以 DataSet 使用的并不是很多。Flink Table API 和 Flink SQL 也并不完善，大多都由各大厂商自己定制。所以我们主要学习 DataStream API 的使用。实际上 Flink 作为最接近 Google DataFlow 模型的实现， 是流批统一的观点， 所以基本上使用 DataStream 就可以了。
 
@@ -82,17 +72,11 @@ Flink Gelly(图计算)
 
 Flink CEP(复杂事件处理)
 
-
-
 # 第二章 快速上手
 
- 
+### 2.1 搭建 maven 工程 FlinkTutorial
 
-### 2.1     搭建maven 工程 FlinkTutorial
-
-**2.1.1**     **pom** **文件**
-
- 
+**2.1.1** **pom** **文件**
 
 ```properties
 <?xml version="1.0" encoding="UTF-8"?>
@@ -215,13 +199,11 @@ Flink CEP(复杂事件处理)
 
 ```
 
-**2.1.2**     **添加** **scala** **框架 和** **scala** **文件夹**
+**2.1.2** **添加** **scala** **框架 和** **scala** **文件夹**
 
-### 2.2     批处理wordcount
+### 2.2 批处理 wordcount
 
- 
-
-*src/main/scala/com.atguigu.wc/WordCount.scala*
+_src/main/scala/com.atguigu.wc/WordCount.scala_
 
 ```scala
 object WordCount {
@@ -245,17 +227,11 @@ wordCountDS.print()
 
 ```
 
-
-
 **注意： Flink 程序支持 java 和 scala 两种语言， 本课程中以 scala 语言为主。在引入包中， 有 java 和 scala 两种包时注意要使用 scala 的包。**
 
- 
+### 2.3 流处理 wordcount
 
-### 2.3     流处理 wordcount
-
- 
-
-*src/main/scala/com.atguigu.wc/StreamWordCount.scala*
+_src/main/scala/com.atguigu.wc/StreamWordCount.scala_
 
 ```scala
 object StreamWordCount {
@@ -284,18 +260,15 @@ import org.apache.flink.api.scala._
 val dataStream: DataStream[(String, Int)] = textDstream.flatMap(_.split("\\s")).filter(_.nonEmpty).map((_, 1)).keyBy(0).sum(1)
 
     dataStream.print().setParallelism(1)
-    
+
     // 启动executor，执行任务
 
 env.execute("Socket stream word count")
 
 ```
 
-
-
- 测试—— 在 linux 系统中用 netcat 命令进行发送测试。
+测试—— 在 linux 系统中用 netcat 命令进行发送测试。
 
 ```sh
 nc -lk 7777
 ```
-
