@@ -19,6 +19,15 @@
   - [三、操作系统](doc/OperatingSystem/README.md)
     - [Linux 基础](doc/OperatingSystem/Linux/Linux.md)
     - [Linux 网络基础](doc/OperatingSystem/Linux/Linux%20网络基础篇.md)
+  - [四、其他](doc/other/readme.md)
+    - [centOS 添加自定义服务](doc/other/linux/CentOS7添加自定义服务.md)
+    - [阿里云运行 frp 服务端](doc/other/linux/NAT内网穿透/阿里云运行frp服务端.md)
+    - [数据库](doc/other/database/readme.md)
+      - [oracle](doc/other/database/oracle/readme.md)
+      - [mysql]()
+      - [postgrep]()
+      - [redis]()
+      - [mongodb]()
 
 <!-- - **其他**
 
