@@ -2,14 +2,14 @@
 
 - [笔记文档](doc/READEM.md)
 
-  - [一、Java](doc/java/README.md)
+  - [一、Java](doc/java/readme.md)
     - [设计模式](doc/java/design-patterns/README.md)
     - [Docker](doc/java/docker/README.md)
     - [JVM](doc/java/jvm/README.md)
       - [1 内存与垃圾回收](doc/java/jvm/1.md)
       - [2 字节码与类的加载](doc/java/jvm/2.md)
       - [3 性能监控与调优](doc/java/jvm/3.md)
-  - [二、大数据](doc/大数据/README.md)
+  - [二、大数据](doc/大数据/readme.md)
     - [1.Spark](doc/大数据/spark/spark.md)
       - [①.SparkCore](doc/大数据/spark/spark-core.md)
       - [②.SparkSql](doc/大数据/spark/SparkSql.md)
