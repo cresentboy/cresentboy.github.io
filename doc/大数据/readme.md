@@ -22,8 +22,6 @@
 
 - [Spark](doc/大数据/spark/spark.md)
 
-- [Sqoop](doc/大数据/sqoop/sqoop.md)
-
 - [Superset](doc/大数据/superset/superset.md)
 
 - [Zookeeper](doc/大数据/zookeeper/zookeeper.md)

@@ -6,7 +6,7 @@
 
 - [Dubbo](doc/java/dubbo/README.md)
 
-- [activeMQ](doc/java/activeMQ/README.md)
+- [activeMQ](doc/java/activemq/readme.md)
 
 - [Elasticsearch](doc/java/elasticsearch/README.md)
 
