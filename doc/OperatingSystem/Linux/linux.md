@@ -2069,6 +2069,7 @@ echo "The last one Daemon process is $!"**
 **环境变量配置文件调用顺序流程图**
 
 ![流程图](https://img-blog.csdnimg.cn/20200525190315737.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MTUwMTIy,size_16,color_FFFFFF,t_70#pic_center)
+
 **这些是在登陆的时候挨个调用，所以在这里面设置环境变量，登陆之后就会自动设置好**
 
 - **登陆输入密码之后，第一步是读取/etc/profile 文件**
@@ -2893,6 +2894,7 @@ echo "The sum is: $s"
 **服务的分类**
 
 ![服务的分类](https://img-blog.csdnimg.cn/20200529121600849.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MTUwMTIy,size_16,color_FFFFFF,t_70)
+
 **启动与自启动**
 
 - **服务启动:就是在当前系统中让服务运行 ，并提供功能。**
@@ -3011,6 +3013,8 @@ echo "The sum is: $s"
 ## 第四节 服务管理总结
 
 ![服务管理总结](https://img-blog.csdnimg.cn/20200529123748236.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MTUwMTIy,size_16,color_FFFFFF,t_70)
+
+
 
 # 第十三章 Linux 系统管理
 
@@ -3467,6 +3471,9 @@ rotate 30
 ### 第二讲 系统启动过程
 
 ![系统启动流程](https://img-blog.csdnimg.cn/2020053015380272.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MTUwMTIy,size_16,color_FFFFFF,t_70#pic_center)
+
+
+
 **initramfs 内存文件系统**
 **CentOS 6.x 中使用 initramfs 内存文件系统 取代了 CentOS 5.x 中的 initrd RAM Disk。 他们的作用类似，可以通过启动引导程序加载到内存中，然后加载启动过程中所需要的内核模块，比如 USB、SATA、SCSI 硬盘的驱动和 LVM、RAID 文件系统的驱动**
 
@@ -3660,10 +3667,18 @@ rpm2cpio /mnt/cdrom/Packages/initscripts-8.45.3-1.i386.rpm | cpio -idv ./etc/ini
 **备份策略**
 
 - **完全备份:完全备份就是指把所有需要备 份的数据全部备份，当然完全备份可以备份整块硬盘，整个分区或某个具体的目录**
+
 - **增量备份**
   ￼![增量备份](https://img-blog.csdnimg.cn/20200530160126408.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MTUwMTIy,size_16,color_FFFFFF,t_70#pic_center)
+  
+  ![image-20220309110534851](linux.assets/image-20220309110534851.png)
+  
+  
+  
 - **差异备份**
   ￼![差异备份](https://img-blog.csdnimg.cn/20200530160146194.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5MTUwMTIy,size_16,color_FFFFFF,t_70#pic_center)
+  
+  
 
 ## 第二节 dump 和 restore 命令
 

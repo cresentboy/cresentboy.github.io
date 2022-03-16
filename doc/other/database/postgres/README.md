@@ -1,3 +1,7 @@
+官方文档：https://www.postgresql.org/docs/
+
+GitHub：https://github.com/postgres/postgres
+
 # docker安装postgres
 
 ```

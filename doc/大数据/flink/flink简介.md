@@ -1,3 +1,7 @@
+官方文档：https://flink.apache.org/
+
+GitHub：https://github.com/apache/flink
+
 #
 
 # 第一章 Flink 简介

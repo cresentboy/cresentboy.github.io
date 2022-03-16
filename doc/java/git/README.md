@@ -1,3 +1,7 @@
+官方文档：https://git-scm.com/doc
+
+GitHub：https://github.com/git/git
+
 # 命令
 
 --system 系统变量，对所有用户都生效，git配置信息写入到/etc/gitconfig

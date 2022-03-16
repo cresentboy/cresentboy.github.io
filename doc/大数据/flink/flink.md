@@ -1,3 +1,7 @@
+官方文档：https://flink.apache.org/
+
+GitHub：https://github.com/apache/flink
+
 #
 
 # 第一章 Flink 简介
@@ -350,7 +354,7 @@ _5)_ _在 webui_ _控制台查看计算过程_
 
 Flink 提供了两种在 yarn 上运行的模式，分别为 Session-Cluster 和 Per-Job-Cluster 模式。
 
-1.      Session-cluster 模式：
+1.        Session-cluster 模式：
 
 ![image-20211117185704865](flink.assets/image-20211117185704865-1637150727575.png)
 
@@ -392,7 +396,7 @@ _2)_ _启动 yarn-session_
 
 ![image-20211117185808021](flink.assets/image-20211117185808021-1637150727575.png)
 
-3.      执行任务
+3.        执行任务
 
 ```
 ./flink run -c com.atguigu.wc.StreamWordCount
