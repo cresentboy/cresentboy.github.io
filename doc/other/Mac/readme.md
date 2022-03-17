@@ -1,1 +1,1 @@
-mac
+- [MacOS 常用终端命令大全](doc/other/Mac/MacOS常用终端命令大全.md)
