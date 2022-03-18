@@ -20,7 +20,7 @@
 
 - [Shell](doc/大数据/shell/shell.md)
 
-- [Spark](doc/大数据/spark/spark.md)
+- [Spark](doc/大数据/spark/readme.md)
 
 - [Superset](doc/大数据/superset/superset.md)
 
