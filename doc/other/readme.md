@@ -6,8 +6,8 @@
 
 - [Mac](doc/other/Mac/readme.md)
 
-- [NAT 内网穿透](doc/other/NAT内网穿透/阿里云运行frp服务端.md)
-
 - [中药学](doc/other/PharmaceuticalBotany/中药学.md)
 
 - [Windows](doc/other/Windows/readme.md)
+
+- [3D 引擎](doc/other/3D引擎.md)
