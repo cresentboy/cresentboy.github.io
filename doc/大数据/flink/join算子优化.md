@@ -23,7 +23,7 @@
 
 ​		• Hash Join
 
-![image-20220318082455005](Flink 流式 Join 算子优化.assets/image-20220318082455005.png)
+![image-20220320112220750](join算子优化.assets/image-20220320112220750.png)
 
 • 流计算最大的特点：无界
 
@@ -42,7 +42,7 @@
 
 ​		• 只考虑在同一个时间窗口内的数据进行关联  
 
-![image-20220318082436242](Flink 流式 Join 算子优化.assets/image-20220318082436242.png)
+![image-20220320112236852](join算子优化.assets/image-20220320112236852.png)
 
 • 存在的问题
 
@@ -66,7 +66,9 @@
 
 ​		• 状态过期逻辑需额外处理（在过期时补 null 下发）  
 
-![image-20220318082545453](Flink 流式 Join 算子优化.assets/image-20220318082545453.png)
+![image-20220320112253557](join算子优化.assets/image-20220320112253557.png)
+
+
 
 • 时效性优先：Regular Join（Streaming Join）
 
@@ -84,7 +86,7 @@
 
 ​		• 依赖全局的状态清理策略（TTL）  
 
-![image-20220318082634243](Flink 流式 Join 算子优化.assets/image-20220318082634243.png)
+![image-20220320112305639](join算子优化.assets/image-20220320112305639.png)
 
 # 流式 Join 算子的出路  
 
@@ -94,4 +96,5 @@
 
 • 不同的取舍下有不同的优化方案  
 
-![image-20220318082659771](Flink 流式 Join 算子优化.assets/image-20220318082659771.png)
+![image-20220320112319851](join算子优化.assets/image-20220320112319851.png)
+
