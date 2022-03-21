@@ -1,5 +1,3 @@
-存放大数据相关的学习笔记
-
 - [Azkaban](doc/大数据/azkaban/azkaban.md)
 
 - [canal](doc/大数据/canal/readme.md)

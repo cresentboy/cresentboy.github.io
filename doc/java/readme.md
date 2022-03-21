@@ -1,5 +1,3 @@
-存放 Java 相关的学习笔记
-
 - [DesignPatterns](doc/java/design-patterns/README.md)
 
 - [Docker](doc/java/docker/README.md)
