@@ -25,6 +25,7 @@
       - [Flink 流式 Join 算子优化](doc/大数据/flink/join算子优化.md)
     - [3.Hudi](doc/大数据/hudi/hudi.md)
     - [4.项目](doc/大数据/project/readme.md)
+    - [5.湖仓一体](doc/大数据/LakeHouse/readme.md)
   - [三、操作系统](doc/OperatingSystem/README.md)
     - [Linux](doc/OperatingSystem/Linux/readme.md)
     - [汇编](doc/OperatingSystem/汇编/readme.md)

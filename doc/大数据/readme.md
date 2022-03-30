@@ -8,6 +8,8 @@
 
 - [Doris](doc/大数据/doris/Doris.md)
 
+- [DeltaLake](doc/大数据/LakeHouse/DeltaLake.md)
+
 - [Flink](doc/大数据/flink/flink.md)
 
 - [Flume](doc/大数据/flume/flume.md)
