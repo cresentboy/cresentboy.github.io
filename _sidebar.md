@@ -66,6 +66,7 @@
       - [chocolatey](doc/other/Windows/chocolatey.md)
       - [Windows 换行符替换](doc/other/Windows/Windows换行符替换.md)
     - [3D 引擎](doc/other/3D引擎.md)
+    - [论文](doc/paper/readme.md)
 
 <!-- - **其他**
 
