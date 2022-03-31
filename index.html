@@ -13,9 +13,12 @@
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
     />
-    <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css" />
-    <script data-src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script data-src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css"
+    />
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
     <script>
       const gitalk = new Gitalk({
         clientID: 'e9be84f84618070a96e5',
@@ -65,5 +68,20 @@
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 
     <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+
+    <!-- gitalk -->
+    <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+    <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+      const gitalk = new Gitalk({
+        clientID: '0f8f0af7450a5295416eD',
+        clientSecret: '908f214ce4b84c4443d0cc93dcb1959aab2dd9c1',
+        repo: 'cresentboy.github.io',
+        owner: 'cresentboy',
+        admin: ['cresentboy'],
+        // facebook-like distraction free mode
+        distractionFreeMode: false,
+      })
+    </script>
   </body>
 </html>
