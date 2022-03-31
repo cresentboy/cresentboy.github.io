@@ -17,21 +17,10 @@
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css"
     />
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-    <script>
-      const gitalk = new Gitalk({
-        clientID: 'e9be84f84618070a96e5',
-        clientSecret: '7384a9fd5f6567eed17c8abe952c12b45cc04a8d',
-        repo: 'https://github.com/cresentboy/cresentboy.github.io', // 存放评论的仓库
-        owner: 'cresentboy', // 仓库的创建者
-        admin: ['cresentboy'], // 如果仓库有多个人可以操作，那么在这里以数组形式写出
-        id: location.pathname, // 用于标记评论是哪个页面的
-      })
-    </script>
   </head>
   <body>
     <div id="app">正在加载，请稍等...</div>
+
     <script>
       window.$docsify = {
         name: '',
@@ -42,24 +31,71 @@
         coverpage: true,
         onlyCover: true,
 
+        count: {
+          countable: true,
+          fontsize: '0.9em',
+          color: 'rgb(90,90,90)',
+          language: 'chinese',
+        },
+
         // 完整配置参数
         search: {
           maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-          paths: [], // or 'auto'，匹配文件路径
-          placeholder: 'Type to search', // 搜索提示框文字， 支持本地化，例子在下面
-          // placeholder: {
-          //   '/zh-cn/': '搜索',
-          //   '/': 'Type to search'
-          // },
-          noData: 'No Results!', // 找不到结果文字提示，支持本地化，例子在下面
-          // noData: {
-          //   '/zh-cn/': '找不到结果',
-          //   '/': 'No Results'
-          // },
-          depth: 2, // 搜索标题的最大程级, 1 - 6
+          paths: [], // or 'auto'
+          placeholder: 'Type to search',
+
+          // 支持本地化
+          placeholder: {
+            '/zh-cn/': '搜索',
+            '/': 'Type to search',
+          },
+
+          noData: 'No Results!',
+
+          // 支持本地化
+          noData: {
+            '/zh-cn/': '找不到结果',
+            '/': 'No Results',
+          },
+
+          // 搜索标题的最大层级, 1 - 6
+          depth: 3,
+
+          hideOtherSidebarContent: false, // 是否隐藏其他侧边栏内容
+
+          // 避免搜索索引冲突
+          // 同一域下的多个网站之间
+          namespace: 'website-1',
+
+          // 使用不同的索引作为路径前缀（namespaces）
+          // 注意：仅适用于 paths: 'auto' 模式
+          //
+          // 初始化索引时，我们从侧边栏查找第一个路径
+          // 如果它与列表中的前缀匹配，我们将切换到相应的索引
+          pathNamespaces: ['/zh-cn', '/ru-ru', '/ru-ru/v1'],
+
+          // 您可以提供一个正则表达式来匹配前缀。在这种情况下，
+          // 匹配到的字符串将被用来识别索引
+          pathNamespaces: /^(\/(zh-cn|ru-ru))?(\/(v1|v2))?/,
         },
       }
     </script>
+
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+
+    <!-- emoji -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+
+    <!-- 复制到剪贴板 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+
+    <!-- pagination -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+
+    <!-- 字数统计-->
+    <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
 
     <!-- 引入搜索模块 -->
     <script data-src="//unpkg.com/docsify/lib/plugins/search.js"></script>
@@ -72,6 +108,7 @@
     <!-- gitalk -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+
     <script>
       const gitalk = new Gitalk({
         clientID: '0f8f0af7450a5295416eD',
