@@ -48,7 +48,7 @@
     - [职工管理系统](doc/C++/职工管理系统/职工管理系统.md)
     - [机房预约系统](doc/C++/机房预约系统/机房预约系统.md)
   - [六、其他](doc/other/readme.md)
-
+    - [云原生](doc/other/cloudNative/readme.md)
     - [数据库](doc/other/database/readme.md)
       - [MongoDB](doc/other/database/mongodb/readme.md)
       - [Oracle](doc/other/database/oracle/readme.md)
