@@ -23,7 +23,11 @@
 
     - [ClickHouse](doc/大数据/clickhouse/clickhouse.md)
 
-    - [ClouderaManager](doc/大数据/ClouderaManager/ClouderaManager术语和架构.md)
+    - [ClouderaManager](doc/大数据/ClouderaManager/readme.md)
+
+      - [ClouderaManager 术语和架构](doc/大数据/ClouderaManager/ClouderaManager术语和架构.md)
+
+      - [ClouderaManager 实战](doc/大数据/ClouderaManager/ClouderaManager实战.md)
 
     - [DolphinScheduler](doc/大数据/DolphinScheduler/DolphinScheduler.md)
 
