@@ -3,16 +3,62 @@
 - [笔记文档](doc/READEM.md)
 
   - [一、Java](doc/java/readme.md)
-    - [设计模式](doc/java/design-patterns/README.md)
+
+    - [activeMQ](doc/java/activemq/readme.md)
+
+    - [DesignPatterns](doc/java/design-patterns/README.md)
+
     - [Docker](doc/java/docker/README.md)
+
+    - [Dubbo](doc/java/dubbo/README.md)
+
+    - [Elasticsearch](doc/java/elasticsearch/README.md)
+
+    - [Git](doc/java/git/README.md)
+
+    - [JavaSE](doc/java/JavaSE/README.md)
+
+    - [JDBC](doc/java/JDBC/README.md)
+
+    - [JUC](doc/java/juc/README.md)
+
     - [JVM](doc/java/jvm/README.md)
+
       - [1 内存与垃圾回收](doc/java/jvm/1.md)
       - [2 字节码与类的加载](doc/java/jvm/2.md)
       - [3 性能监控与调优](doc/java/jvm/3.md)
+
+    - [Maven](doc/java/maven/README.md)
+
+    - [Mybatis](doc/java/mybatis/README.md)
+
+    - [MybatisPlus](doc/java/mybatis-plus/README.md)
+
+    - [Mysql](doc/java/mysql/README.md)
+
+    - [Netty](doc/java/netty/README.md)
+
+    - [Nginx](doc/java/nginx/README.md)
+
+    - [RabbitMQ](doc/java/RabbitMQ/README.md)
+
+    - [Redis](doc/java/redis/README.md)
+
+    - [Redisson](doc/java/redisson/redisson.md)
+
+    - [Spring](doc/java/spring/README.md)
+
+    - [Springboot](doc/java/springboot/README.md)
+
+    - [SpringCloudAlibaba](doc/java/SpringCloudAlibaba/readme.md)
+
+    - [项目](doc/java/project/README.md)
+
     - [凤凰架构](doc/java/Architecture/readme.md)
       - [凤凰架构(一)](doc/java/Architecture/凤凰架构（一）分布式事务.md)
       - [凤凰架构(二)](doc/java/Architecture/凤凰架构（二）客户端缓存.md)
       - [凤凰架构(三)](doc/java/Architecture/凤凰架构（三）传输链路.md)
+
   - [二、大数据](doc/大数据/readme.md)
 
     - [atlas](doc/大数据/atlas/atlas入门.md)
