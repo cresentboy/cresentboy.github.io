@@ -1,4 +1,4 @@
-- [atlas 入门](doc/大数据/atlas/readme.md)
+- [atlas](doc/大数据/atlas/atlas入门.md)
 
 - [Azkaban](doc/大数据/azkaban/azkaban.md)
 
@@ -14,7 +14,7 @@
 
 - [DeltaLake](doc/大数据/LakeHouse/DeltaLake.md)
 
-- [Flink](doc/大数据/flink/flink.md)
+- [Flink](doc/大数据/flink/readme.md)
 
 - [Flume](doc/大数据/flume/flume.md)
 
@@ -30,7 +30,7 @@
 
 - [Impala](doc/大数据/impala/impala.md)
 
-- [Kafka](doc/大数据/kafka/kafka.md)
+- [Kafka](doc/大数据/kafka/readme.md)
 
 - [Kubernetes](doc/大数据/kubernetes/kubernetes.md)
 
