@@ -1,8 +1,12 @@
+- [atlas 入门](doc/大数据/atlas/readme.md)
+
 - [Azkaban](doc/大数据/azkaban/azkaban.md)
 
 - [canal](doc/大数据/canal/readme.md)
 
 - [ClickHouse](doc/大数据/clickhouse/clickhouse.md)
+
+- [ClouderaManager](doc/大数据/ClouderaManager/ClouderaManager术语和架构.md)
 
 - [DolphinScheduler](doc/大数据/DolphinScheduler/DolphinScheduler.md)
 
