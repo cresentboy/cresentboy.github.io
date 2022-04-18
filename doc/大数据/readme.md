@@ -24,6 +24,10 @@
 
 - [Hive](doc/大数据/hive/hive.md)
 
+  - [hive 基础](doc/大数据/hive/hive.md)
+
+  - [hive 源码](doc/大数据/hive/Hive源码.md)
+
 - [Hudi](doc/大数据/hudi/hudi.md)
 
 - [Iceberg](doc/大数据/iceberg/iceberg.md)

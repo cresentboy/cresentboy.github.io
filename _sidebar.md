@@ -97,7 +97,11 @@
 
     - [Hbase](doc/大数据/hbase/hbase.md)
 
-    - [Hive](doc/大数据/hive/hive.md)
+    - [Hive](doc/大数据/hive/readme.md)
+
+      - [hive 基础](doc/大数据/hive/hive.md)
+
+      - [hive 源码](doc/大数据/hive/Hive源码.md)
 
     - [Hudi](doc/大数据/hudi/hudi.md)
 
