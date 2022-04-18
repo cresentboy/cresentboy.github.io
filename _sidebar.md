@@ -135,6 +135,8 @@
 
       - [③.SparkStreaming](doc/大数据/spark/SparkStreaming.md)
 
+      - [④.SparkGraphX](doc/大数据/spark/SparkGraphX.md)
+
     - [Superset](doc/大数据/superset/superset.md)
 
     - [Zookeeper](doc/大数据/zookeeper/zookeeper.md)
