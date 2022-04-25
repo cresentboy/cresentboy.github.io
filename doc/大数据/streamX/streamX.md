@@ -1,3 +1,11 @@
+GitHub： https://github.com/streamxhub/streamx
+
+
+
+官方文档：http://www.streamxhub.com/docs/intro
+
+
+
 # 第1章 Streamx 介绍
 
 ## 1.1 什么是 Streamx
