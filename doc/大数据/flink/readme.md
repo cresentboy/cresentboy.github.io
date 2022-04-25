@@ -9,3 +9,5 @@ GitHub：https://github.com/apache/flink
 - [flink 全解析](doc/大数据/flink/flink.md)
 
 - [Flink 流式 Join 算子优化](doc/大数据/flink/join算子优化.md)
+
+- [streamX](doc/大数据/streamX/streamX.md)
