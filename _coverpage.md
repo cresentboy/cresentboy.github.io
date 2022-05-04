@@ -7,7 +7,7 @@
 <!-- [![star](https://gitee.com/moxi159753/mogu_blog_v2/badge/star.svg?theme=dark)](https://gitee.com/moxi159753/mogu_blog_v2/stargazers)
 [![fork](https://gitee.com/moxi159753/mogu_blog_v2/badge/fork.svg?theme=dark)](https://gitee.com/moxi159753/mogu_blog_v2/members) -->
 
-[Gitee](https://gitee.com/the_present/myBLog)
+[Gitee](https://gitee.com/the_present/)
 [Github](https://github.com/cresentboy/myBlog)
 [开始阅读](README.md)
 
