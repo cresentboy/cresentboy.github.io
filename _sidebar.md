@@ -191,9 +191,3 @@
       - [Windows 换行符替换](doc/other/Windows/Windows换行符替换.md)
     - [3D 引擎](doc/other/3D引擎.md)
     - [论文](doc/paper/readme.md)
-
-<!-- - **其他**
-
-  - [致谢](doc/文档/致谢.md)
-  - [将要做的事](doc/文档/将要做的事.md)
-  - [贡献代码](doc/文档/贡献代码.md) -->
