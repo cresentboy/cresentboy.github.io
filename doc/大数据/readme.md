@@ -84,4 +84,4 @@
 
   - [Zookeeper](doc/大数据/zookeeper/zookeeper.md)
 
-  - [项目](doc/大数据/project/离线数仓.md)
+  - [项目](doc/大数据/project/readme.md)

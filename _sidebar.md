@@ -147,7 +147,7 @@
 
     - [Zookeeper](doc/大数据/zookeeper/zookeeper.md)
 
-    - [项目](doc/大数据/project/离线数仓.md)
+    - [项目](doc/大数据/project/readme.md)
 
   - [三、操作系统](doc/OperatingSystem/README.md)
     - [Linux](doc/OperatingSystem/Linux/readme.md)
