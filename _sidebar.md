@@ -189,5 +189,6 @@
       - [Windows 开启组策略](doc/other/Windows/Windows开启组策略/gpedit.md)
       - [chocolatey](doc/other/Windows/chocolatey.md)
       - [Windows 换行符替换](doc/other/Windows/Windows换行符替换.md)
+      - [配置密钥对登陆到阿里云服务器](doc/other/Windows/配置密钥对登陆到阿里云服务器.md)
     - [3D 引擎](doc/other/3D引擎.md)
     - [论文](doc/paper/readme.md)
