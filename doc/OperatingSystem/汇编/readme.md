@@ -1,2 +1,3 @@
 - [汇编入门](doc/OperatingSystem/汇编/汇编入门.md)
 - [汇编基础总结](doc/OperatingSystem/汇编/汇编基础总结.md)
+- [程序员的自我修养](doc/OperatingSystem/汇编/程序员的自我修养.md)
