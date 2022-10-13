@@ -11,12 +11,4 @@
 [Github](https://github.com/cresentboy/myBlog)
 [开始阅读](README.md)
 
-<!-- 背景图片 -->
 
-<!-- ![](_media/bg.jpg) -->
-
-<!-- 背景色 -->
-
-<!-- ![color](#00BFFF) -->
-
-<!-- 背景图片和背景色只能有一个生效. -->
